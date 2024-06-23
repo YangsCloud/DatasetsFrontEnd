@@ -1,17 +1,18 @@
 {
-  "name": "nuxt-app",
+  "name": "Datasets - Yangs Cloud",
   "private": true,
   "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
-  "devDependencies": {
-    "@nuxt/devtools": "latest",
-    "@nuxt/ui": "^2.17.0",
-    "nuxt": "^3.12.1"
+  "dependencies": {
+    "astro": "^4.11.0",
+    "@astrojs/check": "^0.5.8",
+    "typescript": "^5.2.2"
   }
 }

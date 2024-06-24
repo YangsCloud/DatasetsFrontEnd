@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
+
 import tailwind from "@astrojs/tailwind";
-import compress from "astro-compress";
+import playformCompress from "@playform/compress";
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,5 +11,5 @@ export default defineConfig({
       __DATE__: `'${new Date().toISOString()}'`,
     },
   },
-  integrations: [tailwind(), compress(),]
+  integrations: [tailwind(), playformCompress()],
 });

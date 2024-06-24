@@ -3,19 +3,20 @@ import Footer from './Footer.astro';
 import Header from './Header.astro';
 
 interface Props {
-  title: string;
   description: string;
+  title?: string;
   image?: string;
 }
 
 const { title, description, image } = Astro.props;
+
+const currentTitle = title
+	? `${title} | Datasets - Yangs Cloud`
+	: `Datasets - Yangs Cloud`;
 ---
 
 <!doctype html>
 <html lang="en">
-<head>
-  <title>{title}</title>
-</head>
   <head>
     <meta charset="UTF-8" />
 
@@ -23,7 +24,7 @@ const { title, description, image } = Astro.props;
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="manifest" href="/manifest.webmanifest" />
 
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
@@ -33,7 +34,7 @@ const { title, description, image } = Astro.props;
     <meta property="og:image" content={image} />
     <meta property="twitter:image" content={image} />
 
-    <title>{title}</title>
+    <title>{currentTitle}</title>
   </head>
   <body class="dark:bg-stone-950">
     <Header />

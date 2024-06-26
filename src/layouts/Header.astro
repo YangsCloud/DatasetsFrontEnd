@@ -31,12 +31,12 @@ export const menuitems = [
   <div class="p-4 flex flex-row items-center justify-between">
     <a
       href="/"
-      class="flex gap-3 items-center text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark:text-white focus:outline-none focus:shadow-outline"
+      class="flex gap-3 items-center text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark:text-white focus:outline-none focus:shadow-outline w-[188px]"
     >
       <img
         src="/logos/logo-horizontal-transparent.svg"
         alt="logo"
-        class="w-1/2"
+        class="w-[188px]"
       />
     </a>
     <button class="md:hidden text-gray-500 w-10 h-10 relative focus:outline-none" @click="togglerOpen = !togglerOpen">
@@ -77,7 +77,7 @@ export const menuitems = [
         menuitems.map(
           (item) => item.children && item.children.length ? (
             <div class="relative">
-              <Button size="sm" style="link" classname="mt-[2px]" x-on:click="submenuOpen = !submenuOpen">
+              <Button size="md" style="link" classname="mt-[2px]" x-on:click="submenuOpen = !submenuOpen">
                 {item.title}
                 <svg
                   fill="currentColor"
@@ -108,7 +108,7 @@ export const menuitems = [
                       (subitem) => (
                         <Link
                           href={subitem.path}
-                          size="sm"
+                          size="md"
                           style="hover"
                           classname="block"
                           x-data="{ isActive: false }"
@@ -135,7 +135,7 @@ export const menuitems = [
           ) : (
             <Link
               href={item.path}
-              size="sm"
+              size="md"
               style="hover"
               x-data="{ isActive: false }"
               x-init={
@@ -157,7 +157,7 @@ export const menuitems = [
       }
     </div>
     <div class="mt-4 md:mt-0 flex flex-col md:flex-row gap-4">
-      <Link href="/login" style="outline" class="md:px-3 md:py-2 leading-6">
+      <Link href="/login" size="md" style="outline" class="md:px-3 md:py-2 leading-6">
         Login
       </Link>
     </div>

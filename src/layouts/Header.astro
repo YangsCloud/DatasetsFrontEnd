@@ -1,4 +1,7 @@
 ---
+import Button from "./modules/Button.astro";
+import Link from "./modules/Link.astro";
+
 export const menuitems = [
   {
     title: "Home",
@@ -6,11 +9,11 @@ export const menuitems = [
   },
   {
     title: "Datasets",
-    path: "/Datasets",
+    path: "javascript:void(0)",
     children: [
       {
         title: "Younger",
-        path: "/Younger"
+        path: "/Younger/"
       },
     ],
   },
@@ -18,9 +21,145 @@ export const menuitems = [
     title: "About",
     path: "/About",
   },
-  {
-    title: "Contact",
-    path: "/Contact",
-  },
 ];
 ---
+<div
+  x-data="{ togglerAppear: window.innerWidth < 768, togglerOpen: false, inDark: false, atTop: true }"
+  class="sticky top-0 flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8 z-10 md:pt-2 relative"
+  @scroll.window="atTop = (window.pageYOffset <= 100) ? true: false"
+>
+  <div class="p-4 flex flex-row items-center justify-between">
+    <a
+      href="/"
+      class="flex gap-3 items-center text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark:text-white focus:outline-none focus:shadow-outline"
+    >
+      <img
+        src="/logos/logo-horizontal-transparent.svg"
+        alt="logo"
+        class="w-1/2"
+      />
+    </a>
+    <button class="md:hidden text-gray-500 w-10 h-10 relative focus:outline-none" @click="togglerOpen = !togglerOpen">
+      <span class="sr-only">Open Main Menu</span>
+      <div class="block w-5 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <span
+          aria-hidden="true"
+          class="block absolute h-0.5 w-5 bg-current transform transition duration-200 ease-in-out"
+          :class="{'rotate-45': togglerOpen,' -translate-y-1.5': !togglerOpen}">
+        </span>
+        <span
+          aria-hidden="true"
+          class="block absolute h-0.5 w-5 bg-current transform transition duration-200 ease-in-out"
+          :class="{'opacity-0': togglerOpen} ">
+        </span>
+        <span
+          aria-hidden="true"
+          class="block absolute h-0.5 w-5 bg-current transform transition duration-200 ease-in-out"
+          :class="{'-rotate-45': togglerOpen,' translate-y-1.5': !togglerOpen}">
+        </span>
+      </div>
+    </button>
+  </div>
+
+  <nav
+    :class="{'flex': !togglerAppear, 'hidden': (togglerAppear && !togglerOpen)}"
+    x-show="!togglerAppear || togglerOpen"
+    x-transition:enter="transition ease-out duration-200"
+    x-transition:enter-start="opacity-0 transform scale-90"
+    x-transition:enter-end="opacity-100 transform scale-100"
+    x-transition:leave="transition ease-in duration-200"
+    x-transition:leave-start="opacity-100 transform scale-100"
+    x-transition:leave-end="opacity-0 transform scale-90"
+    class="md:mt-0 lg:pl-8 md:items-center flex-grow pb-4 md:pb-0 flex-col gap-2 transition-all ease-out md:transition-none md:justify-center md:flex-row"
+  >
+    <div x-data="{submenuOpen: false}" x-on:click.outside="submenuOpen = false" class="flex flex-col flex-grow text-center gap-2 md:justify-center md:items-center md:flex md:flex-row md:mx-auto">
+      {
+        menuitems.map(
+          (item) => item.children && item.children.length ? (
+            <div class="relative">
+              <Button size="sm" style="link" classname="mt-[2px]" x-on:click="submenuOpen = !submenuOpen">
+                {item.title}
+                <svg
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  x-bind:class="{'rotate-180': submenuOpen, 'rotate-0': !submenuOpen}"
+                  class="inline w-4 h-4 mb-[2px] transition-transform duration-200 transform"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </Button>
+              <div
+                x-show="submenuOpen"
+                x-transition:enter="transition ease-out duration-100"
+                x-transition:enter-start="transform opacity-0 scale-95"
+                x-transition:enter-end="transform opacity-100 scale-100"
+                x-transition:leave="transition ease-in duration-75"
+                x-transition:leave-start="transform opacity-100 scale-100"
+                x-transition:leave-end="transform opacity-0 scale-95"
+                class="absolute mt-2 bg-white right-0 w-full origin-top-right rounded-md md:w-48 outline-2 border border-gray-300"
+              >
+                <div class="px-2 py-2 rounded-md shadow dark:bg-gray-800">
+                  {
+                    item.children.map(
+                      (subitem) => (
+                        <Link
+                          href={subitem.path}
+                          size="sm"
+                          style="hover"
+                          classname="block"
+                          x-data="{ isActive: false }"
+                          x-init={
+                            `() => {
+                              const subpath = $el.getAttribute('href');
+                              const checkSubpath = () => {
+                                isActive = window.location.pathname === subpath || window.location.pathname === path + '/';
+                              };
+                              document.removeEventListener('astro:page-load', checkSubpath);
+                              document.addEventListener('astro:page-load', checkSubpath);
+                            }`
+                          }
+                          x-bind:class="{ 'bg-gray-200 dark:bg-gray-600': isActive }"
+                        >
+                          {subitem.title}
+                        </Link>
+                      )
+                    )
+                  }
+                </div>
+              </div>
+            </div>
+          ) : (
+            <Link
+              href={item.path}
+              size="sm"
+              style="hover"
+              x-data="{ isActive: false }"
+              x-init={
+                `() => {
+                  const path = $el.getAttribute('href');
+                  const checkPath = () => {
+                    isActive = window.location.pathname === path || window.location.pathname === path + '/';
+                  };
+                  document.removeEventListener('astro:page-load', checkPath);
+                  document.addEventListener('astro:page-load', checkPath);
+                }`
+              }
+              x-bind:class="{ 'bg-gray-200 dark:bg-gray-600': isActive }"
+            >
+              {item.title}
+            </Link>
+          ),
+        )
+      }
+    </div>
+    <div class="mt-4 md:mt-0 flex flex-col md:flex-row gap-4">
+      <Link href="/login" style="outline" class="md:px-3 md:py-2 leading-6">
+        Login
+      </Link>
+    </div>
+  </nav>
+</div>

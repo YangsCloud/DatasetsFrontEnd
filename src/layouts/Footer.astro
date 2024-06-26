@@ -1,0 +1,57 @@
+---
+const linkitems = [
+  {
+    title: 'Home',
+    path: '/',
+    isExternal: false,
+  },
+  {
+    title: 'Yangs Cloud',
+    path: 'https://yangs.cloud/',
+    isExternal: true,
+  },
+  {
+    title: 'Bench Council',
+    path: 'https://www.benchcouncil.org/',
+    isExternal: true,
+  },
+  {
+    title: 'Jason Young',
+    path: 'https://jason-young.me/',
+    isExternal: true,
+  },
+];
+---
+<footer class="pb-12 pt-28 dark:bg-stone-950">
+  <div class="mx-auto max-w-6xl px-6 md:px-12 lg:px-6 xl:px-0">
+    <a href="/" aria-label="logo" class="group flex items-center justify-center space-x-2">
+      <img
+        src="/logos/logo-horizontal-transparent.svg"
+        alt="logo"
+        class="w-52"
+      />
+      <!-- <span class="text-semibold duration-300 text-gray-400 group-hover:text-gray-900 dark:text-white dark:group-hover:text-gray-100">
+        Datasets - Yangs Cloud
+      </span> -->
+    </a>
+    <ul role="list" class="flex flex-wrap items-center justify-center gap-4 py-4 text-gray-600 dark:text-white sm:gap-8">
+      <li role="listitem" class="text-neutral-600 font-semibold">
+        Link Exchange:
+      </li>
+      {
+        linkitems.map(
+          (item) => (
+            <li role="listitem">
+              <a href={item.path} class="duration-300 hover:text-gray-900 dark:hover:text-gray-100">
+                {item.title}
+              </a>
+            </li>
+          )
+        )
+      }
+    </ul>
+    <div class="mt-4 text-center">
+      <span class="text-sm tracking-wide text-gray-500 dark:text-white">Copyright © Yangs Cloud 2024 - Present. All Rights Reserved</span>
+    </div>
+  </div>
+</footer>

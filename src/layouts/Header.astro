@@ -79,7 +79,12 @@ export const menuitems = [
         menuitems.map(
           (item) => item.children && item.children.length ? (
             <div class="relative">
-              <Button size="md" style="link" classname="mt-[2px]" x-on:click="submenuOpen = !submenuOpen">
+              <Button
+                size="md"
+                style="link"
+                classname="mt-[2px]"
+                x-on:click="submenuOpen = !submenuOpen"
+              >
                 {item.title}
                 <svg
                   fill="currentColor"
@@ -118,13 +123,13 @@ export const menuitems = [
                             `() => {
                               const subpath = $el.getAttribute('href');
                               const checkSubpath = () => {
-                                isActive = window.location.pathname === subpath || window.location.pathname === path + '/';
+                                isActive = window.location.pathname === subpath || window.location.pathname === subpath + '/';
                               };
                               document.removeEventListener('astro:page-load', checkSubpath);
                               document.addEventListener('astro:page-load', checkSubpath);
                             }`
                           }
-                          x-bind:class="{ 'bg-neutral-200 dark:bg-neutral-600': isActive }"
+                          x-bind:class="{ 'bg-neutral-200 dark:bg-neutral-700': isActive }"
                         >
                           {subitem.title}
                         </Link>
@@ -150,7 +155,7 @@ export const menuitems = [
                   document.addEventListener('astro:page-load', checkPath);
                 }`
               }
-              x-bind:class="{ 'bg-neutral-200 dark:bg-neutral-600': isActive }"
+              x-bind:class="{ 'bg-neutral-200 dark:bg-neutral-700': isActive }"
             >
               {item.title}
             </Link>

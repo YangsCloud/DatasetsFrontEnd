@@ -42,7 +42,7 @@ const linkitems = [
         linkitems.map(
           (item) => (
             <li role="listitem">
-              <a href={item.path} class="duration-300 hover:text-amber-950 dark:hover:text-amber-300">
+              <a href={item.path} class="duration-300 font-normal hover:text-amber-950 dark:hover:text-amber-300" target={item.isExternal ? '_blank' : '_self'}>
                 {item.title}
               </a>
             </li>

@@ -1,20 +1,23 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Container from "../layouts/Container.astro";
 ---
 <Layout title="404">
-  <section class="flex items-center h-full p-16 dark:bg-neutral-800 text-neutral-900 dark:text-amber-600">
-    <div class="container flex flex-col items-center justify-center px-5 m-auto">
-      <div class="text-center">
-      <h2 class="m-8 font-bold text-9xl">
-        <span class="sr-only">Error</span>
-        <span class="text-primary">404</span>
-      </h2>
-      <p class="text-3xl font-semibold md:text-3xl">Sorry! You are in the land of no one.</p>
-      <p class="m-4 text-lg text-muted">But don't worry. The homepage has a lot of information.</p>
-      <div class="p-2">
-        <a href="/" class="w-full rounded-md text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 text-center bg-neutral-700 outline-2 dark:bg-neutral-300 hover:bg-neutral-800 dark:hover:bg-neutral-100 focus-visible:bg-neutral-500 dark:focus-visible:bg-neutral-100 text-neutral-100 dark:text-red-800 border-transparent active:outline shadow-sm px-3 py-1.5">Back to Home</a>
+  <Container>
+    <section class="flex items-center h-4/5 p-16 dark:bg-neutral-800 text-neutral-900 dark:text-amber-600">
+      <div class="container flex flex-col items-center justify-center px-5 m-auto">
+        <div class="text-center">
+        <h2 class="m-8 font-bold text-9xl">
+          <span class="sr-only">Error</span>
+          <span class="text-primary">404</span>
+        </h2>
+        <p class="text-3xl font-semibold md:text-3xl">Sorry! You are in the land of no one.</p>
+        <p class="m-4 text-lg text-muted">But don't worry. The homepage has a lot of information.</p>
+        <div class="p-2">
+          <a href="/" class="w-full rounded-md text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 text-center bg-neutral-700 outline-2 dark:bg-neutral-300 hover:bg-neutral-800 dark:hover:bg-neutral-100 focus-visible:bg-neutral-500 dark:focus-visible:bg-neutral-100 text-neutral-100 dark:text-red-800 border-transparent active:outline shadow-sm px-3 py-1.5">Back to Home</a>
+        </div>
+        </div>
       </div>
-      </div>
-    </div>
-  </section>
+    </section>
+  </Container>
 </Layout>

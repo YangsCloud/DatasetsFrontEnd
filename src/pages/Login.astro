@@ -1,0 +1,25 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Container from "../layouts/Container.astro"
+import Button from "../layouts/modules/Button.astro"
+import Link from "../layouts/modules/Link.astro"
+---
+<Layout title="Login">
+  <Container>
+    <div class="flex h-4/5 items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
+      <div class="w-full">
+        <div>
+          <h2 class="text-center text-2xl font-bold leading-2 tracking-tight text-neutral-900 dark:text-amber-100">Sign In With GitHub</h2>
+          <p class="text-center text-sm leading-6 text-gray-500">
+            We Only Support GitHub OAuth Login.
+          </p>
+        </div>
+        <Button class="w-full" size="sm">Login</Button>
+        <p class="text-center text-sm leading-6 text-gray-500">
+          Do Not Have Account of GitHub?
+        </p>
+        <Link style="muted" href="#" size="xs" class="text-center">Please Register A GitHub Account</Link>
+      </div>
+    </div>
+  </Container>
+</Layout>

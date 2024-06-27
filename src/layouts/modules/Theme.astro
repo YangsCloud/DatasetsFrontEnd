@@ -3,15 +3,15 @@ import Button from "./Button.astro"
 ---
 <div
   x-cloak
-  class="flex justify-center m-3 gap-0"
+  class="flex justify-center m-3 gap-1"
   aria-label="Theme Selection"
 >
   <Button
     size="sm"
     style="link"
+    classname="px-1 py-0.5 hover:bg-sky-300 focus:bg-sky-300 dark:hover:bg-sky-500 dark:focus:bg-sky-500"
     x-on:click="themeType = 'light'"
-    x-bind:class="{ 'bg-sky-200': themeType === 'light' }"
-    classname="px-1 py-0.5 hover:bg-sky-500 focus:bg-sky-500"
+    x-bind:class="{ 'bg-sky-200 hover:bg-sky-200 focus:bg-sky-200': themeType === 'light' }"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -33,9 +33,9 @@ import Button from "./Button.astro"
   <Button
     size="sm"
     style="link"
+    classname="px-1 py-0.5 hover:bg-purple-300 focus:bg-purple-300 dark:hover:bg-purple-500 dark:focus:bg-purple-500"
     x-on:click="themeType = 'dark'"
-    x-bind:class="{ 'bg-purple-200': themeType === 'dark' }"
-    classname="px-1 py-0.5 hover:bg-purple-500 focus:bg-purple-500"
+    x-bind:class="{ 'bg-purple-200 hover:bg-purple-200 focus:bg-purple-200': themeType === 'dark' }"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -53,9 +53,9 @@ import Button from "./Button.astro"
   <Button
     size="sm"
     style="link"
+    classname="px-1 py-0.5 hover:bg-neutral-300 focus:bg-neutral-300 dark:hover:bg-neutral-500 dark:focus:bg-neutral-500"
     x-on:click="themeType = 'system'"
-    x-bind:class="{ 'bg-neutral-200': themeType === 'dark' }"
-    classname="px-1 py-0.5 hover:bg-neutral-500 focus:bg-neutral-500"
+    x-bind:class="{ 'bg-neutral-200 hover:bg-neutral-200 focus:bg-netural-200': themeType === 'system' }"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"

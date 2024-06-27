@@ -22,8 +22,8 @@ const linkitems = [
   },
 ];
 ---
-<footer class="pb-12 pt-28 dark:bg-stone-950">
-  <div class="mx-auto max-w-6xl px-6 md:px-12 lg:px-6 xl:px-0">
+<footer class="pb-9 pt-9 dark:bg-neutral-800">
+  <div class="mx-auto px-3 md:px-6 lg:px-4 xl:px-0">
     <a href="/" aria-label="logo" class="group flex items-center justify-center space-x-2 w-52 block mx-auto">
       <img
         src="/logos/logo-horizontal-transparent.svg"
@@ -34,15 +34,15 @@ const linkitems = [
         Datasets - Yangs Cloud
       </span> -->
     </a>
-    <ul role="list" class="flex flex-wrap items-center justify-center gap-4 py-4 text-gray-600 dark:text-white sm:gap-8">
-      <li role="listitem" class="text-neutral-600 font-semibold">
+    <ul role="list" class="flex flex-wrap items-center justify-center gap-4 py-4 text-amber-700 dark:text-amber-600 sm:gap-8">
+      <li role="listitem" class="text-amber-900 dark:text-amber-500 font-semibold">
         Link Exchange:
       </li>
       {
         linkitems.map(
           (item) => (
             <li role="listitem">
-              <a href={item.path} class="duration-300 hover:text-gray-900 dark:hover:text-gray-100">
+              <a href={item.path} class="duration-300 hover:text-amber-950 dark:hover:text-amber-300">
                 {item.title}
               </a>
             </li>
@@ -51,7 +51,7 @@ const linkitems = [
       }
     </ul>
     <div class="mt-4 text-center">
-      <span class="text-sm tracking-wide text-gray-500 dark:text-white">Copyright © Yangs Cloud 2024 - Present. All Rights Reserved</span>
+      <span class="text-sm tracking-wide text-amber-900 dark:text-amber-600">Copyright © Yangs Cloud 2024 - Present. All Rights Reserved</span>
     </div>
   </div>
 </footer>

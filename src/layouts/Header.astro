@@ -26,13 +26,14 @@ export const menuitems = [
 ---
 <div
   x-data="{ togglerAppear: window.innerWidth < 768, togglerOpen: false, atTop: true }"
-  class="sticky top-0 flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8 z-10 md:pt-2 relative"
-  @scroll.window="atTop = (window.pageYOffset <= 100) ? true: false"
+  class="sticky top-0 flex flex-col px-3 mx-auto md:items-center md:justify-between md:flex-row md:px-4 lg:px-6 z-10 relative text-amber-900 dark:text-amber-600 bg-neutral-100 dark:bg-neutral-800"
+  :class="{ 'shadow-lg': !atTop}"
+  @scroll.window="atTop = (window.pageYOffset <= 36) ? true: false"
 >
   <div class="p-2 flex flex-row items-center justify-between">
     <a
       href="/"
-      class="flex gap-3 items-center text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark:text-white focus:outline-none focus:shadow-outline w-[188px]"
+      class="flex gap-3 items-center text-lg font-semibold tracking-widest text-netural-900 dark:text-amber-600 uppercase rounded-lg focus:outline-none focus:shadow-outline w-[188px]"
     >
       <img
         src="/logos/logo-horizontal-transparent.svg"
@@ -40,7 +41,7 @@ export const menuitems = [
         class="w-[188px]"
       />
     </a>
-    <button class="md:hidden text-gray-500 w-10 h-10 relative focus:outline-none" @click="togglerOpen = !togglerOpen">
+    <button class="md:hidden text-amber-700 dark:text-amber-600 w-10 h-10 relative focus:outline-none" @click="togglerOpen = !togglerOpen">
       <span class="sr-only">Open Main Menu</span>
       <div class="block w-5 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
         <span
@@ -101,9 +102,9 @@ export const menuitems = [
                 x-transition:leave="transition ease-in duration-75"
                 x-transition:leave-start="transform opacity-100 scale-100"
                 x-transition:leave-end="transform opacity-0 scale-95"
-                class="absolute mt-2 bg-white right-0 w-full origin-top-right rounded-md md:w-48 outline-2 border border-gray-300"
+                class="absolute mt-2 bg-neutral-100 dark:bg-neutral-700 right-0 w-full origin-top-right rounded-md md:w-48 outline-2 border border-neutral-300 dark:border-neutral-600"
               >
-                <div class="px-2 py-2 rounded-md shadow dark:bg-gray-800">
+                <div class="px-2 py-2 rounded-md shadow dark:bg-neutral-800">
                   {
                     item.children.map(
                       (subitem) => (
@@ -123,7 +124,7 @@ export const menuitems = [
                               document.addEventListener('astro:page-load', checkSubpath);
                             }`
                           }
-                          x-bind:class="{ 'bg-gray-200 dark:bg-gray-600': isActive }"
+                          x-bind:class="{ 'bg-neutral-200 dark:bg-neutral-600': isActive }"
                         >
                           {subitem.title}
                         </Link>
@@ -149,7 +150,7 @@ export const menuitems = [
                   document.addEventListener('astro:page-load', checkPath);
                 }`
               }
-              x-bind:class="{ 'bg-gray-200 dark:bg-gray-600': isActive }"
+              x-bind:class="{ 'bg-neutral-200 dark:bg-neutral-600': isActive }"
             >
               {item.title}
             </Link>

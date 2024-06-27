@@ -24,13 +24,13 @@ const sizes = {
 const styles = {
   outline: "border-2 border-black hover:bg-black text-black hover:text-white",
   primary: "bg-black text-white dark:bg-white dark:text-black dark:hover:bg-slate-100 hover:bg-slate-900 border-2 border-transparent",
-  link: "text-stone-950 font-semibold text-sm text-center transition hover:text-gray-900 focus:text-gray-900 focus:bg-gray-200 focus:outline-none focus:shadow-outline hover:bg-gray-200 dark:hover:bg-gray-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-white",
+  link: "text-amber-900 font-semibold text-sm text-center transition hover:text-amber-600 focus:text-amber-600 focus:bg-neutral-200 focus:outline-none focus:shadow-outline hover:bg-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 dark:focus:text-amber-300 dark:hover:text-amber-300 dark:text-amber-600",
 };
 ---
 
 <button
   class:list={[
-    "rounded-md text-center transition focus-visible:ring-2 ring-offset-2 ring-gray-200",
+    "rounded-md text-center transition focus-visible:ring-2 ring-offset-2 ring-neutral-200",
     sizes[size],
     block && "w-full",
     styles[style],

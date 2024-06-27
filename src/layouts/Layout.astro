@@ -46,7 +46,7 @@ const currentDescription = description
     <title>{currentTitle}</title>
   </head>
   <body
-    class="dark:bg-neutral-950"
+    class="bg-neutral-100 h-screen dark:bg-neutral-900"
     x-data="{ themeType: localStorage.getItem('themeType') || localStorage.setItem('themeType', 'System')}"
     x-init="$watch('themeType', (value) => localStorage.setItem('themeType', value))"
     x-bind:class="{'dark': themeType === 'dark' || (themeType === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)}"

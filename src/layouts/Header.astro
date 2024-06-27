@@ -25,7 +25,7 @@ export const menuitems = [
 ];
 ---
 <div
-  x-data="{ togglerAppear: window.innerWidth < 768, togglerOpen: false, inDark: false, atTop: true }"
+  x-data="{ togglerAppear: window.innerWidth < 768, togglerOpen: false, atTop: true }"
   class="sticky top-0 flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8 z-10 md:pt-2 relative"
   @scroll.window="atTop = (window.pageYOffset <= 100) ? true: false"
 >

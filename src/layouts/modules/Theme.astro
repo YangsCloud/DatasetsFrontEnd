@@ -10,7 +10,8 @@ import Button from "./Button.astro"
     size="sm"
     style="link"
     x-on:click="themeType = 'light'"
-    classname="px-1 py-0.5"
+    x-bind:class="{ 'bg-sky-200': themeType === 'light' }"
+    classname="px-1 py-0.5 hover:bg-sky-500 focus:bg-sky-500"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +34,8 @@ import Button from "./Button.astro"
     size="sm"
     style="link"
     x-on:click="themeType = 'dark'"
-    classname="px-1 py-0.5"
+    x-bind:class="{ 'bg-purple-200': themeType === 'dark' }"
+    classname="px-1 py-0.5 hover:bg-purple-500 focus:bg-purple-500"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +54,8 @@ import Button from "./Button.astro"
     size="sm"
     style="link"
     x-on:click="themeType = 'system'"
-    classname="px-1 py-0.5"
+    x-bind:class="{ 'bg-neutral-200': themeType === 'dark' }"
+    classname="px-1 py-0.5 hover:bg-neutral-500 focus:bg-neutral-500"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"

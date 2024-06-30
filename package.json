@@ -14,6 +14,7 @@
     "@astrojs/alpinejs": "^0.4.0",
     "@astrojs/check": "^0.5.8",
     "@astrojs/tailwind": "^5.1.0",
+    "@directus/sdk": "^16.1.0",
     "@fontsource-variable/inter": "^5.0.18",
     "@playform/compress": "^0.0.13",
     "@tailwindcss/typography": "^0.5.13",

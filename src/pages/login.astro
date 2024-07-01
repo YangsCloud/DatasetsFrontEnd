@@ -4,10 +4,10 @@ import Container from "../layouts/Container.astro"
 import Link from "../layouts/modules/Link.astro"
 import { createDirectus, authentication } from '@directus/sdk';
 
-const client = createDirectus('https://datasets.yangs.cloud/public')
-     .with(authentication('session', { credentials: 'include' }));
+// const client = createDirectus('https://datasets.yangs.cloud/public')
+//      .with(authentication('session', { credentials: 'include' }));
 
-await client.refresh();
+// await client.refresh();
 ---
 
 <Layout title="Login">
@@ -21,7 +21,7 @@ await client.refresh();
           </p>
         </div>
         <div class="p-2 flex flex-row items-center justify-center">
-          <Link style="primary" href="https://datasets.yangs.cloud/public/auth/login/github?redirect=https://datasets.yangs.cloud/login" classname="flex items-center justify-center w-[266px]" size="sm">
+          <Link style="primary" href="https://datasets.yangs.cloud/public/auth/login/github?redirect=http://localhost:4321/login" classname="flex items-center justify-center w-[266px]" size="sm">
             <img src="/logos/github/github-mark-white.svg" alt="GitHub" class="flex w-[1.5rem] m-2 block dark:hidden" />
             <img src="/logos/github/github-mark.svg" alt="GitHub" class="flex w-[1.5rem] m-2 hidden dark:block" />
             <span>Log In With GitHub</span>
@@ -31,7 +31,7 @@ await client.refresh();
           Do Not Have Account of GitHub?
         </p>
         <div class="p-2 flex flex-row items-center justify-center">
-          <Link style="outline" href="https://github.com/join" size="sm">Please Register A GitHub Account</Link>
+          <Link style="outline" href="https://github.com/join" size="sm" target="_blank">Please Register A GitHub Account</Link>
         </div>
       </div>
     </div>

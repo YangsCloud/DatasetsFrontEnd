@@ -2,10 +2,14 @@
 import Layout from "../layouts/Layout.astro"
 import Container from "../layouts/Container.astro"
 import Link from "../layouts/modules/Link.astro"
+import { localIsAuthed } from "../libs/store.svelte"
 ---
 
 <Layout title="Sign In">
   <Container>
+    {localIsAuthed ?
+      <div>Jason</div> : <div>Young</div>
+    }
     <div class="flex h-4/5 items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
       <div class="w-full">
         <div>

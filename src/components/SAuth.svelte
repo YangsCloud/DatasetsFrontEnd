@@ -10,10 +10,7 @@
 </script>
 
 {#if isAuthed}
-  <div>
-    Welcome, {userInfo["external_identifier"]}!
-  </div>
-  <slot name="logout" />
+  <slot name="myinfo" />
 {:else}
   <slot name="signin" />
 {/if}

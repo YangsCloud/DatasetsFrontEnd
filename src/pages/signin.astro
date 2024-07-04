@@ -2,35 +2,37 @@
 import Layout from "../layouts/Layout.astro"
 import Container from "../layouts/Container.astro"
 import Link from "../layouts/modules/Link.astro"
-import { localIsAuthed } from "../libs/store.svelte"
+
+import SSignIn from "../components/SSignIn.svelte"
 ---
 
 <Layout title="Sign In">
   <Container>
-    {localIsAuthed ?
-      <div>Jason</div> : <div>Young</div>
-    }
     <div class="flex h-4/5 items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
       <div class="w-full">
-        <div>
-          <h2 class="text-center text-2xl font-bold leading-2 tracking-tight text-neutral-900 dark:text-amber-600">Sign In With GitHub</h2>
-          <p class="font-bold text-center text-sm leading-6 text-amber-600 dark:text-neutral-300">
-            We Only Support GitHub OAuth2.0
-          </p>
-        </div>
-        <div class="p-2 flex flex-row items-center justify-center">
-          <Link style="primary" href="http://localhost:16861/auth/login/github?redirect=http://localhost:4321" classname="flex items-center justify-center w-[266px]" size="sm">
+        <SSignIn client:load>
+          <Link slot="myinfo_button" style="primary" href="/myinfo" classname="flex items-center justify-center w-[266px]" size="sm">
+            <span class="translate-x-3">Go To My Info Page</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6 flex w-[1.5rem] block translate-x-6"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286-.672ZM12 2.25V4.5m5.834.166-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243-1.59-1.59" />
+            </svg>
+          </Link>
+          <Link slot="logout_button" style="outline" href="https://github.com/join" size="sm" target="_blank">Log Out</Link>
+
+          <Link slot="signin_button" style="primary" href="http://localhost:16861/auth/login/github?redirect=http://localhost:4321" classname="flex items-center justify-center w-[266px]" size="sm">
             <img src="/logos/github/github-mark-white.svg" alt="GitHub" class="flex w-[1.5rem] m-2 block dark:hidden" />
             <img src="/logos/github/github-mark.svg" alt="GitHub" class="flex w-[1.5rem] m-2 hidden dark:block" />
             <span>Sign In With GitHub</span>
           </Link>
-        </div>
-        <p class="font-bold text-center text-sm leading-6 text-gray-500">
-          Do Not Have Account of GitHub?
-        </p>
-        <div class="p-2 flex flex-row items-center justify-center">
-          <Link style="outline" href="https://github.com/join" size="sm" target="_blank">Please Register A GitHub Account</Link>
-        </div>
+          <Link slot="signup_button" style="outline" href="https://github.com/join" size="sm" target="_blank">Please Register A GitHub Account</Link>
+        </SSignIn>
       </div>
     </div>
   </Container>

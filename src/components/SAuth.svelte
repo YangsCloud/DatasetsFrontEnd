@@ -1,11 +1,11 @@
 <script>
   import { onMount } from "svelte";
-  import { checkAuth } from "../libs/auth.svelte"
+  import { getUserInfo } from "../libs/auth.svelte"
 
-  export let isAuthed = false;
-  export let userInfo = null;
+  let isAuthed;
+  let userInfo;
   onMount( async () => {
-    ({isAuthed, userInfo} = await checkAuth());
+    ({isAuthed, userInfo} = await getUserInfo());
   });
 </script>
 

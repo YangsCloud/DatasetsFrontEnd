@@ -1,4 +1,6 @@
 import { defineConfig } from 'astro/config';
+
+import svelte from "@astrojs/svelte";
 import tailwind from "@astrojs/tailwind";
 import alpinejs from "@astrojs/alpinejs";
 import playformCompress from "@playform/compress";
@@ -11,5 +13,6 @@ export default defineConfig({
       __DATE__: `'${new Date().toISOString()}'`
     }
   },
-  integrations: [tailwind(), alpinejs(), playformCompress()]
+  output: 'server',
+  integrations: [tailwind(), alpinejs(), svelte(), playformCompress()]
 });

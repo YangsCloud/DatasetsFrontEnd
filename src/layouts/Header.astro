@@ -3,6 +3,8 @@ import Button from "./modules/Button.astro";
 import Link from "./modules/Link.astro";
 import Theme from "./modules/Theme.astro";
 
+import SAuth from "../components/SAuth.svelte";
+
 export const menuitems = [
   {
     title: "Home",
@@ -174,9 +176,14 @@ export const menuitems = [
     </div>
     <Theme />
     <div class="mt-4 md:mt-0 flex flex-col md:flex-row gap-4">
-      <Link href="/login" size="md" style="outline" class="md:px-3 md:py-2 leading-6">
-        Login
-      </Link>
+      <SAuth client:load>
+        <Link slot="signin" href="/signin" size="md" style="outline" classname="md:px-3 md:py-2 leading-6 text-nowrap text-ellipsis">
+          Sign In
+        </Link>
+        <Link slot="logout" href="/logout" size="md" style="outline" classname="md:px-3 md:py-2 leading-6 text-nowrap text-ellipsis">
+          Log Out
+        </Link>
+      </SAuth>
     </div>
   </nav>
 </div>

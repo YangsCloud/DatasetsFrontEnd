@@ -21,12 +21,17 @@
 
   onMount( async () => {
     ({isAuthed, userInfo} = await getUserInfo());
-    first_name = userInfo['first_name'] === null ? '' : userInfo['first_name'];
-    last_name  = userInfo[ 'last_name'] === null ? '' : userInfo[ 'last_name'];
-    id = userInfo['external_identifier'];
-    role = userInfo['role'];
-    email = userInfo['email'];
+    if (isAuthed) {
+      first_name = userInfo['first_name'] === null ? '' : userInfo['first_name'];
+      last_name  = userInfo[ 'last_name'] === null ? '' : userInfo[ 'last_name'];
+      id = userInfo['external_identifier'];
+      role = userInfo['role'];
+      email = userInfo['email'];
+    } else {
+      redirectTo('/signin')
+    }
   });
+
   $: input_first_name = first_name;
   $: input_last_name = last_name;
 
@@ -53,6 +58,8 @@
       );
       if (result) {
         updateFlag = true;
+        first_name = result['first_name']
+        last_name = result['last_name']
       }
     }
   }
@@ -128,10 +135,10 @@
     </div>
     <div>
     </div>
-    <div class="flex w-full justify-center">
+    <div class="flex w-full justify-center text-nowrap text-ellipsis px-[1px] py-[1px]">
       <button type="submit" class="m-4 w-1/3 px-3 py-1 bg-neutral-500 text-neutral-100 dark:bg-neutral-300 dark:text-black dark:hover:bg-amber-600 dark:focus:bg-amber-800 hover:bg-neutral-600 focus:hover:bg-neutral-700 border-2 border-transparent rounded-md text-center transition focus-visible:ring-2 ring-offset-2 ring-neutral-200">Update</button>
     </div>
-    <div class="flex w-full justify-center">
+    <div class="flex w-full justify-center text-nowrap text-ellipsis px-[1px] py-[1px]">
       <button on:click={() => logoutAndRedirect('/signin')} class="m-4 w-1/3 px-3 py-1 border-2 border-purple-300 dark:text-white hover:bg-purple-500 text-black hover:text-white rounded-md text-center transition focus-visible:ring-1 ring-offset-1 ring-purple-200 focus:ring-purple-200">Log Out</button>
     </div>
     {#if showNote}

@@ -7,15 +7,17 @@
   let userMail;
   onMount( async () => {
     ({isAuthed, userInfo} = await getUserInfo());
-    let fname = userInfo["first_name"] === null ? "" : userInfo["first_name"];
-    let lname = userInfo["last_name" ] === null ? "" : userInfo["last_name" ];
-    let uname = fname + " " + lname;
-    if (uname.trim() === "") {
-        userName = userInfo["external_identifier"];
-    } else {
-        userName = uname;
+    if (isAuthed) {
+      let fname = userInfo["first_name"] === null ? "" : userInfo["first_name"];
+      let lname = userInfo["last_name" ] === null ? "" : userInfo["last_name" ];
+      let uname = fname + " " + lname;
+      if (uname.trim() === "") {
+          userName = userInfo["external_identifier"];
+      } else {
+          userName = uname;
+      }
+      userMail = userInfo["email"];
     }
-    userMail = userInfo["email"];
   });
 </script>
 

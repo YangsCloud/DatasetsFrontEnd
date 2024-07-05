@@ -11,6 +11,13 @@ module.exports = {
       fontFamily: {
         sans: ["Inter Variable", "Inter", ...defaultTheme.fontFamily.sans],
       },
+      animation: {
+        'pulse-single': 'pulse 1s ease-in-out 3',
+      }
+    },
+    backgroundImage: {
+      'endless-clouds': "url('/backgrounds/endless-clouds.svg')",
+      'dark-endless-clouds': "url('/backgrounds/dark-endless-clouds.svg')"
     },
     screens: {
       sm: "576px",

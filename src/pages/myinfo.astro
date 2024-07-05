@@ -1,0 +1,19 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Container from "../layouts/Container.astro"
+
+import SMyInfo from "../components/SMyInfo.svelte"
+---
+
+<Layout title="My Info">
+  <Container>
+    <div class="flex h-4/5 items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
+      <div class="w-full">
+        <div>
+          <h2 class="my-10 text-center text-2xl md:text-xl font-bold leading-2 tracking-tight text-neutral-900 dark:text-amber-600">My Information</h2>
+        </div>
+        <SMyInfo client:load/>
+      </div>
+    </div>
+  </Container>
+</Layout>

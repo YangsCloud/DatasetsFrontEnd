@@ -35,8 +35,8 @@ export const menuitems = [
 ];
 ---
 <div
-  x-data="{ togglerAppear: window.innerWidth < 768, togglerOpen: false, atTop: true }"
-  class="sticky top-0 flex flex-col px-3 mx-auto md:items-center md:justify-between md:flex-row md:px-4 lg:px-6 z-10 relative text-amber-900 dark:text-amber-600 bg-neutral-100 dark:bg-neutral-800"
+  x-data="{ togglerAppear: window.innerWidth < 992, togglerOpen: false, atTop: true }"
+  class="sticky top-0 flex flex-col px-3 mx-auto lg:items-center lg:justify-between lg:flex-row lg:px-4 xl:px-6 z-10 relative text-amber-900 dark:text-amber-600 bg-neutral-100 dark:bg-neutral-800"
   :class="{ 'shadow-lg': !atTop}"
   @scroll.window="atTop = (window.pageYOffset <= 36) ? true: false"
 >
@@ -52,7 +52,7 @@ export const menuitems = [
       />
       <!-- <span class="flex flex-row items-center justify-between font-bold text-lg text-purple-900 dark:text-purple-300 capitalize">Datasets</span> -->
     </a>
-    <button class="md:hidden text-amber-700 dark:text-amber-600 w-10 h-10 relative focus:outline-none" @click="togglerOpen = !togglerOpen">
+    <button class="lg:hidden text-amber-700 dark:text-amber-600 w-10 h-10 relative focus:outline-none" @click="togglerOpen = !togglerOpen">
       <span class="sr-only">Open Main Menu</span>
       <div class="block w-5 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
         <span
@@ -83,9 +83,9 @@ export const menuitems = [
     x-transition:leave="transition ease-in duration-200"
     x-transition:leave-start="opacity-100 transform scale-100"
     x-transition:leave-end="opacity-0 transform scale-90"
-    class="md:mt-0 lg:pl-8 md:items-center flex-grow pb-4 md:pb-0 flex-col gap-2 transition-all ease-out md:transition-none md:justify-center md:flex-row"
+    class="lg:mt-0 xl:pl-8 lg:items-center flex-grow pb-4 lg:pb-0 flex-col gap-2 transition-all ease-out lg:transition-none lg:justify-center lg:flex-row"
   >
-    <div x-data="{submenuOpen: false}" x-on:click.outside="submenuOpen = false" class="flex flex-col flex-grow text-center gap-2 md:justify-center md:items-center md:flex md:flex-row md:mx-auto">
+    <div x-data="{submenuOpen: false}" x-on:click.outside="submenuOpen = false" class="flex flex-col flex-grow text-center gap-2 lg:justify-center lg:items-center lg:flex lg:flex-row lg:mx-auto">
       {
         menuitems.map(
           (item) => item.children && item.children.length ? (
@@ -175,7 +175,7 @@ export const menuitems = [
       }
     </div>
     <Theme />
-    <div class="mt-4 md:mt-0 flex flex-col md:flex-row gap-4">
+    <div class="mt-4 lg:mt-0 flex flex-col lg:flex-row gap-4">
       <SAuth client:load>
         <Link slot="signin" href="/signin" size="xs" style="outline" classname="flex flex-row items-center justify-center leading-6 text-nowrap text-ellipsis px-[1px] py-[1px]">
           <svg

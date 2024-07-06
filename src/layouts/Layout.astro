@@ -53,6 +53,10 @@ const currentDescription = description
     x-init="$watch('themeType', (value) => localStorage.setItem('themeType', value))"
     x-bind:class="{'dark': themeType === 'dark' || (themeType === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)}"
   >
+    <div class="absolute top-0 right-0 size-[188px] translate-x-[-20%] translate-y-[80%] rounded-full bg-[rgba(170,64,0,0.5)] opacity-50 blur-[80px] block dark:hidden"></div>
+    <div class="absolute top-0 right-0 size-[188px] translate-x-[-20%] translate-y-[80%] rounded-full bg-[rgba(245,245,245,0.5)] opacity-50 blur-[80px] hidden dark:block"></div>
+    <div class="absolute bottom-0 left-0 size-[166px] translate-x-[80%] translate-y-[30%] rounded-full bg-[rgba(170,64,0,0.5)] opacity-50 blur-[80px] block dark:hidden"></div>
+    <div class="absolute bottom-0 left-0 size-[166px] translate-x-[80%] translate-y-[30%] rounded-full bg-[rgba(245,245,245,0.5)] opacity-50 blur-[80px] hidden dark:block"></div>
     <Header />
     <slot />
     <Footer />

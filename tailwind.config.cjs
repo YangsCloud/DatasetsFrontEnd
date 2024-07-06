@@ -13,7 +13,11 @@ module.exports = {
       },
       animation: {
         'pulse-single': 'pulse 1s ease-in-out 3',
-      }
+      },
+      colors: {
+        'clouds-amber': '#243c5a',
+        'clouds-neutral': '#e8e8e8',
+      },
     },
     backgroundImage: {
       'endless-clouds': "url('/backgrounds/endless-clouds.svg')",

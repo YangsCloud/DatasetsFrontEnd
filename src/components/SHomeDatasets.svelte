@@ -23,6 +23,9 @@
     {#if homeDataset["status"] === 'published'}
       <div class="flex flex-col rounded-md border-2 border-neutral-200 shadow-md shadow-neutral-600 dark:border-neutral-700 dark:shadow-neutral-500">
         <dt class="flex items-center pt-1 pb-1 pl-3 gap-x-3 text-base font-semibold leading-7 text-black dark:text-white border-b-2 border-dashed border-neutral-300 dark:border-neutral-600">
+          <span class="relative flex h-3 w-3 items-center justify-center">
+            <span class="animate-pulse relative inline-flex rounded-full h-full w-full bg-amber-600"></span>
+          </span>
           {homeDataset["title"]}
         </dt>
         <dd class="pt-1 pb-1 px-3 flex flex-auto flex-col text-base leading-7 text-gray-900 dark:text-gray-100">

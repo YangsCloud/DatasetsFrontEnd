@@ -18,20 +18,25 @@ import SHomeApplications from '../components/SHomeApplications.svelte';
             <p class="mt-6 text-lg text-left leading-8 text-gray-900 dark:text-gray-100 px-8 py-2 rounded-md border-2 border-neutral-300 dark:bg-neutral-700 dark:border-neutral-700 shadow-inner shadow-neutral-500 dark:shadow-neutral-950">
               The website maintains and publishes <span class="font-semibold text-amber-700">datasets</span> derived from real-world scenarios, all freely accessible and open to contributions worldwide. Each dataset comes with detailed instructions and explanations of its <span class="font-semibold text-amber-700">applications</span>, along with abundant open-source experimental code to lower the barriers for researchers and developers to enter the field quickly.
             </p>
-            <div class="mt-6 flex items-center justify-center gap-x-2 md:gap-x-6">
+            <div class="mt-6 flex flex-wrap items-center justify-center gap-x-2 md:gap-x-6 gap-y-2 md:gap-y-5">
               <Link href="/overview" classname="flex items-center justify-center w-[120px] text-nowrap text-ellipsis" size="sm">Get Started</Link>
               <Link href="https://yangs.cloud" style="hover" classname="flex items-center justify-center w-[256px]" size="sm" target="_blank">
-                <span class="translate-x-2 text-nowrap text-ellipsis">Find More At Yangs Cloud</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke-width="1.5"
                   stroke="currentColor"
-                  class="flex w-[18px] block mx-2 translate-x-2"
+                  class="flex w-[18px] block ml-2 -translate-x-2"
                 >
                   <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
                 </svg>
+                <span class="text-nowrap text-ellipsis">Find More At Yangs Cloud</span>
+              </Link>
+              <Link href="https://github.com/YangsCloud" style="hover" classname="flex items-center justify-center" size="sm" target="_blank">
+                <img src="/logos/github/github-mark-white.svg" alt="GitHub" class="w-[18px] ml-2 -translate-x-2 hidden dark:block" />
+                <img src="/logos/github/github-mark.svg" alt="GitHub" class="w-[18px] ml-2 -translate-x-2 block dark:hidden" />
+                <span class="text-nowrap text-ellipsis">Organization</span>
               </Link>
             </div>
           </div>

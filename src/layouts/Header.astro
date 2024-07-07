@@ -36,7 +36,7 @@ export const menuitems = [
 ---
 <div
   x-data="{ togglerAppear: window.innerWidth < 992, togglerOpen: false, atTop: true }"
-  class="sticky top-0 flex flex-col px-3 mx-auto lg:items-center lg:justify-between lg:flex-row lg:px-4 xl:px-6 z-10 relative text-amber-900 dark:text-amber-600 bg-neutral-100 dark:bg-neutral-800"
+  class="sticky top-0 flex flex-col px-3 mx-auto lg:items-center lg:justify-between lg:flex-row lg:px-4 xl:px-6 z-20 relative text-amber-900 dark:text-amber-600 bg-neutral-100 dark:bg-neutral-800"
   :class="{ 'shadow-lg': !atTop}"
   @scroll.window="atTop = (window.pageYOffset <= 36) ? true: false"
 >

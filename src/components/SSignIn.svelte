@@ -1,6 +1,8 @@
 <script>
   import { onMount } from "svelte";
-  import { getUserInfo } from "../libs/auth.svelte"
+  import { getUserInfo, logout } from "../libs/auth.svelte"
+  import { redirectTo } from "../libs/redirect.svelte";
+
   let isAuthed;
   let userInfo;
   let userName;
@@ -19,6 +21,11 @@
       userMail = userInfo["email"];
     }
   });
+
+  async function logoutAndRedirect(path) {
+    await logout();
+    redirectTo(path);
+  }
 </script>
 
 <div>
@@ -50,7 +57,7 @@
 </p>
 <div class="p-2 flex flex-row items-center justify-center">
   {#if isAuthed}
-    <slot name="logout_button"/>
+    <button on:click={() => logoutAndRedirect('/signin')} class="w-1/8 px-2 py-1 text-xs border-2 border-purple-300 dark:text-purple-300 hover:bg-purple-500 text-purple-600 hover:text-purple-200 rounded-md text-center transition focus-visible:ring-1 ring-offset-1 ring-purple-200 focus:ring-purple-200">Log Out</button>
   {:else}
     <slot name="signup_button"/>
   {/if}

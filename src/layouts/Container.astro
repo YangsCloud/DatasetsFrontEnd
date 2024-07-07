@@ -2,6 +2,12 @@
 const { classname } = Astro.props;
 ---
 
-<div class:list={["min-h-screen bg-neutral-100 dark:bg-neutral-800 px-8 py-5 text-neutral-900 dark:text-amber-600", classname]}>
-  <slot />
+<div class:list={["-z-10 min-h-screen bg-neutral-100 dark:bg-neutral-800 px-8 py-5 text-neutral-900 dark:text-amber-600", classname]}>
+  <div class="z-0 absolute top-0 right-0 size-[188px] translate-x-[-20%] translate-y-[80%] rounded-full bg-[rgba(170,64,0,0.5)] opacity-50 blur-[80px] block dark:hidden"></div>
+  <div class="z-0 absolute top-0 right-0 size-[188px] translate-x-[-20%] translate-y-[80%] rounded-full bg-[rgba(245,245,245,0.5)] opacity-50 blur-[80px] hidden dark:block"></div>
+  <div class="z-0 absolute bottom-0 left-0 size-[166px] translate-x-[80%] translate-y-[30%] rounded-full bg-[rgba(170,64,0,0.5)] opacity-50 blur-[80px] block dark:hidden"></div>
+  <div class="z-0 absolute bottom-0 left-0 size-[166px] translate-x-[80%] translate-y-[30%] rounded-full bg-[rgba(245,245,245,0.5)] opacity-50 blur-[80px] hidden dark:block"></div>
+  <div class="relative z-10">
+    <slot />
+  </div>
 </div>

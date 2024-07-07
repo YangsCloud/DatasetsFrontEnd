@@ -1,0 +1,100 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Container from '../../layouts/Container.astro';
+---
+
+<Layout>
+  <Container>
+<div class="overflow-hidden w-full overflow-x-auto rounded-xl border border-slate-300 dark:border-slate-700">
+    <table class="w-full text-left text-sm text-slate-700 dark:text-slate-300">
+        <thead class="border-b border-slate-300 bg-slate-100 text-sm text-black dark:border-slate-700 dark:bg-slate-800 dark:text-white">
+            <tr>
+                <th scope="col" class="p-4">User</th>
+                <th scope="col" class="p-4">ID</th>
+                <th scope="col" class="p-4">Member Since</th>
+                <th scope="col" class="p-4">Status</th>
+                <th scope="col" class="p-4">Action</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-300 dark:divide-slate-700">
+            <tr>
+                <td class="p-4">
+                    <div class="flex w-max items-center gap-2">
+                        <img class="size-10 rounded-full object-cover" src="https://penguinui.s3.amazonaws.com/component-assets/avatar-8.webp" alt="user avatar" />
+                        <div class="flex flex-col">
+                            <span class="text-black dark:text-white">Alice Brown</span>
+                            <span class="text-sm text-slate-700 opacity-85 dark:text-slate-300">alice.brown@gmail.com</span>
+                        </div>
+                    </div>
+                </td>
+                <td class="p-4">2335</td>
+                <td class="p-4">Nov 14, 2021</td>
+                <td class="p-4"><span class="inline-flex overflow-hidden rounded-xl border border-green-600 px-1 py-0.5 text-xs font-medium text-green-600 bg-green-600/10">Active</span></td>
+                <td class="p-4"><button type="button" class="cursor-pointer whitespace-nowrap rounded-xl bg-transparent p-0.5 font-semibold text-blue-700 outline-blue-700 hover:opacity-75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 active:opacity-100 active:outline-offset-0 dark:text-blue-600 dark:outline-blue-600">Edit</button></td>
+            </tr>
+            <tr>
+                <td class="p-4">
+                    <div class="flex w-max items-center gap-2">
+                        <img class="size-10 rounded-full object-cover" src="https://penguinui.s3.amazonaws.com/component-assets/avatar-1.webp" alt="user avatar" />
+                        <div class="flex flex-col">
+                            <span class="text-black dark:text-white">Bob Johnson</span>
+                            <span class="text-sm text-slate-700 opacity-85 dark:text-slate-300">johnson.bob@penguinui.com</span>
+                        </div>
+                    </div>
+                </td>
+                <td class="p-4">2338</td>
+                <td class="p-4">Aug 20, 2020</td>
+                <td class="p-4"><span class="inline-flex overflow-hidden rounded-xl border border-green-600 px-1 py-0.5 text-xs font-medium text-green-600 bg-green-600/10">Active</span></td>
+                <td class="p-4"><button type="button" class="cursor-pointer whitespace-nowrap rounded-xl bg-transparent p-0.5 font-semibold text-blue-700 outline-blue-700 hover:opacity-75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 active:opacity-100 active:outline-offset-0 dark:text-blue-600 dark:outline-blue-600">Edit</button></td>
+            </tr>
+            <tr>
+                <td class="p-4">
+                    <div class="flex w-max items-center gap-2">
+                        <img class="size-10 rounded-full object-cover" src="https://penguinui.s3.amazonaws.com/component-assets/avatar-2.webp" alt="user avatar" />
+                        <div class="flex flex-col">
+                            <span class="text-black dark:text-white">Ryan Thompson</span>
+                            <span class="text-sm text-slate-700 opacity-85 dark:text-slate-300">ryan.thompson@penguinui.com</span>
+                        </div>
+                    </div>
+                </td>
+                <td class="p-4">2346</td>
+                <td class="p-4">Feb 5, 2022</td>
+                <td class="p-4"><span class="inline-flex overflow-hidden rounded-xl border border-red-600 px-1 py-0.5 text-xs font-medium text-red-600 bg-red-600/10">Canceled</span></td>
+                <td class="p-4"><button type="button" class="cursor-pointer whitespace-nowrap rounded-xl bg-transparent p-0.5 font-semibold text-blue-700 outline-blue-700 hover:opacity-75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 active:opacity-100 active:outline-offset-0 dark:text-blue-600 dark:outline-blue-600">Edit</button></td>
+            </tr>
+            <tr>
+                <td class="p-4">
+                    <div class="flex w-max items-center gap-2">
+                        <img class="size-10 rounded-full object-cover" src="https://penguinui.s3.amazonaws.com/component-assets/avatar-4.webp" alt="user avatar" />
+                        <div class="flex flex-col">
+                            <span class="text-black dark:text-white">Emily Rodriguez</span>
+                            <span class="text-sm text-slate-700 opacity-85 dark:text-slate-300">emily.rodriguez@penguinui.com</span>
+                        </div>
+                    </div>
+                </td>
+                <td class="p-4">2349</td>
+                <td class="p-4">Jun 14, 2022</td>
+                <td class="p-4"><span class="inline-flex overflow-hidden rounded-xl border border-green-600 px-1 py-0.5 text-xs font-medium text-green-600 bg-green-600/10">Active</span></td>
+                <td class="p-4"><button type="button" class="cursor-pointer whitespace-nowrap rounded-xl bg-transparent p-0.5 font-semibold text-blue-700 outline-blue-700 hover:opacity-75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 active:opacity-100 active:outline-offset-0 dark:text-blue-600 dark:outline-blue-600">Edit</button></td>
+            </tr>
+            <tr>
+                <td class="p-4">
+                    <div class="flex w-max items-center gap-2">
+                        <img class="size-10 rounded-full object-cover" src="https://penguinui.s3.amazonaws.com/component-assets/avatar-7.webp" alt="user avatar" />
+                        <div class="flex flex-col">
+                            <span class="text-black dark:text-white">Alex Martinez</span>
+                            <span class="text-sm text-slate-700 opacity-85 dark:text-slate-300">alex.martinez@penguinui.com</span>
+                        </div>
+                    </div>
+                </td>
+                <td class="p-4">2345</td>
+                <td class="p-4">Sep 17, 2018</td>
+                <td class="p-4"><span class="inline-flex overflow-hidden rounded-xl border border-green-600 px-1 py-0.5 text-xs font-medium text-green-600 bg-green-600/10">Active</span></td>
+                <td class="p-4"><button type="button" class="cursor-pointer whitespace-nowrap rounded-xl bg-transparent p-0.5 font-semibold text-blue-700 outline-blue-700 hover:opacity-75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 active:opacity-100 active:outline-offset-0 dark:text-blue-600 dark:outline-blue-600">Edit</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+  </Container>
+</Layout>

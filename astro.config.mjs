@@ -1,8 +1,8 @@
 import { defineConfig } from 'astro/config';
 
 import svelte from "@astrojs/svelte";
+import alpine from "@astrojs/alpinejs";
 import tailwind from "@astrojs/tailwind";
-import alpinejs from "@astrojs/alpinejs";
 import playformCompress from "@playform/compress";
 
 // https://astro.build/config
@@ -14,5 +14,5 @@ export default defineConfig({
     }
   },
   output: 'server',
-  integrations: [tailwind(), alpinejs(), svelte(), playformCompress()]
+  integrations: [tailwind(), alpine(), svelte(), playformCompress()]
 });

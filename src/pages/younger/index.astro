@@ -3,53 +3,12 @@ import Layout from '../../layouts/Layout.astro';
 import Container from '../../layouts/Container.astro';
 import Prose from '../../layouts/modules/Prose.astro';
 
-import PMD from '../../libs/temp.svelte';
-
-// const content = "<p>Alpine.js is a lightweight JavaScript framework used to build interactive front-end components. It&rsquo;s lean, easy-to-use, and harnesses the power of Vue&rsquo;s or React&rsquo;s interactivity, with the simplicity of using Tailwind CSS classes.</p> <div class=\"heading-wrapper level-h2\" tabindex=\"-1\"> <h2 id=\"what-is-alpinejs\">What is Alpine.js?</h2> </div> <p>Alpine.js is a minimal JavaScript framework for declarative programming. Unlike Vue or React, it doesn&rsquo;t require a build step and it works directly in your HTML. It is great for sprinkling in small bits of interactivity to HTML rendered on the server, like dropdowns, tabs, and modals.</p> <div class=\"heading-wrapper level-h2\" tabindex=\"-1\"> <h2 id=\"key-features-of-alpinejs\">Key Features of Alpine.js</h2> </div> <div class=\"heading-wrapper level-h3\" tabindex=\"-1\"> <h3 id=\"lightweight-and-easy-to-use\">Lightweight and Easy to Use</h3> </div> <p>At around 10KB minified and gzipped, Alpine.js is significantly smaller than many of the other front-end JavaScript frameworks. It&rsquo;s also straightforward to use - if you&rsquo;re familiar with JavaScript and HTML, you&rsquo;ll be able to pick it up quickly.</p> <div class=\"heading-wrapper level-h3\" tabindex=\"-1\"> <h3 id=\"declarative-programming\">Declarative Programming</h3> </div> <p>Alpine.js provides a way of managing state and behavior in a declarative manner, meaning your code describes what should be done, rather than how.</p> <div class=\"heading-wrapper level-h3\" tabindex=\"-1\"> <h3 id=\"versatile\">Versatile</h3> </div> <p>You can use Alpine.js on its own or in combination with other libraries or frameworks. It doesn&rsquo;t dictate your entire front-end structure, making it a perfect choice for adding interactivity to existing projects.</p> <div class=\"heading-wrapper level-h2\" tabindex=\"-1\"> <h2 id=\"getting-started-with-alpinejs\">Getting Started with Alpine.js</h2> </div> <p>To get started, include the script tag in your HTML file:</p> <pre class=\"astro-code github-dark\" tabindex=\"0\" data-language=\"html\"><code><span class=\"line\">&lt;script src=\"https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js\" defer&gt;&lt;/script&gt;</span> </code></pre> <p>Alpine.js provides you with a set of directives that you can use within your HTML like so:</p> <pre class=\"astro-code github-dark\" tabindex=\"0\" data-language=\"html\"><code><span class=\"line\">&lt;div x-data=\"{ open: false }\"&gt;</span> <span class=\"line\">    &lt;button @click=\"open = !open\"&gt;Toggle&lt;/button&gt;</span> <span class=\"line\">    &lt;div x-show=\"open\"&gt;</span> <span class=\"line\">        This content will toggle.</span> <span class=\"line\">    &lt;/div&gt;</span> <span class=\"line\">&lt;/div&gt;</span> </code></pre> <p>In this example, when the button is clicked, the&nbsp;<code>open</code>&nbsp;data attribute is toggled, which in turn toggles the visibility of the div below it.</p> <p>Alpine.js brings a refreshing perspective to building interactive user interfaces. It&rsquo;s lightweight, straightforward, and a great choice for adding interactivity to your front-end applications without the weight of a larger framework.</p>"
-
+import SYIntrocution from '../../components/younger/SYIntroduction.svelte';
 ---
-
 <Layout title='Younger'>
   <Container>
-      <Prose>
-      <a
-        href="/introduction"
-        class="text-blue-400 dark:text-stone-400 uppercase tracking-wider text-sm font-medium no-underline">
-        This is Tag
-      </a>
-      <h1 class="text-4xl mb-3 lg:text-5xl font-bold lg:tracking-tight mt-1 lg:leading-tight dark:text-white">
-        This Title
-      </h1>
-      <div class="flex gap-2 items-center">
-        <div class="w-full md:w-auto flex flex-wrap gap-3">
-              <a href="#" class="text-sm text-gray-500 dark:text-stone-300">
-                #Other Tags
-              </a>
-        </div>
-      </div>
-      <div class="flex gap-2 mt-4 items-center flex-wrap md:flex-nowrap">
-        <span class="text-gray-400 dark:text-stone-400">
-          Author
-        </span>
-        <span class="text-gray-400 dark:text-stone-400">•</span>
-        <time class="text-gray-400 dark:text-stone-400" datetime="2017-02-14">
-          2017-02-14
-        </time>
-      </div>
-    </div>
-    </Prose>
-
-    <!-- <div class="mx-auto prose prose-lg dark:prose-invert mt-6 dark:text-gray-200"> -->
     <Prose>
-      <PMD client:load/>
+      <SYIntrocution client:load/>
     </Prose>
-    <!-- </div> -->
-    <div class="mx-auto mt-20">
-      <a href="/blog">
-        <div class="flex flex-row align-middle justify-center dark:text-stone-200">
-          <p class="ml-2">Back to Home</p>
-        </div>
-      </a>
-    </div>
   </Container>
 </Layout>

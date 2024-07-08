@@ -2,13 +2,23 @@
 import Layout from '../../layouts/Layout.astro';
 import Container from '../../layouts/Container.astro';
 import Prose from '../../layouts/modules/Prose.astro';
+import Breadcrumbs from '../../layouts/modules/Breadcrumbs.astro';
 
-import SYIntrocution from '../../components/younger/SYIntroduction.svelte';
+import SMarkdown from '../../components/SMarkdown.svelte';
+
+const breadcrumbs = [
+  {
+    name: 'Younger',
+    path: '/younger',
+  },
+];
+
 ---
 <Layout title='Younger'>
   <Container>
     <Prose>
-      <SYIntrocution client:load/>
+    <Breadcrumbs breadcrumbs={breadcrumbs} classname="not-prose pl-0"/>
+      <SMarkdown singletonName={'Younger_Introduction'} client:load/>
     </Prose>
   </Container>
 </Layout>

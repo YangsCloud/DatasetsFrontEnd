@@ -1,10 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Container from '../layouts/Container.astro';
+import Prose from '../layouts/modules/Prose.astro';
+import Breadcrumbs from '../layouts/modules/Breadcrumbs.astro';
+
+import SMarkdown from '../components/SMarkdown.svelte';
+
 ---
-
-<Layout title='about'>
+<Layout title='About'>
   <Container>
-
+    <Prose>
+      <Breadcrumbs classname="not-prose pl-0"/>
+      <SMarkdown singletonName={'AboutInfo'} client:load/>
+    </Prose>
   </Container>
 </Layout>

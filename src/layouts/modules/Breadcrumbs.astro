@@ -5,13 +5,13 @@ interface Breadcrumb {
 }
 
 interface Props {
-  breadcrumbs: Breadcrumb[];
+  breadcrumbs?: Breadcrumb[];
   classname?: string;
 }
 
 const {
-  breadcrumbs,
-  classname
+  breadcrumbs = [],
+  classname = "",
 } = Astro.props;
 
 ---
@@ -23,21 +23,25 @@ const {
   </a>
 
   {
-    breadcrumbs.map(
-      (item) => (
-        <div class="flex items-center justify-center hover:animate-pulse hover:duration-100">
-          <span class="ml-3 mr-1 rtl:-scale-x-100">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-3">
-              <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-            </svg>
-          </span>
+    () => {
+      if (breadcrumbs) {
+        breadcrumbs.map(
+          (item) => (
+            <div class="flex items-center justify-center hover:animate-pulse hover:duration-100">
+              <span class="ml-3 mr-1 rtl:-scale-x-100">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-3">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                </svg>
+              </span>
 
-          <a href={item.path}>
-            {item.name}
-          </a>
-        </div>
-      )
-    )
+              <a href={item.path}>
+                {item.name}
+              </a>
+            </div>
+          )
+        )
+      }
+    }
   }
 
 </div>

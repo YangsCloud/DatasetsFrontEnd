@@ -1,5 +1,5 @@
 <script>
-  export let body;
+  export let body = '';
 </script>
 
 {@html body}

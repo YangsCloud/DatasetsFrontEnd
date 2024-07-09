@@ -7,20 +7,21 @@
   import SMarkdownHead from "./SMarkdownHead.svelte";
 
   export let singletonName;
-  let title;
-  let author;
-  let created_datetime;
-  let updated_datetime;
-  let content;
+  let title = 'This Page Is Under Construction';
+  let author = 'Unknown';
+  let created_datetime = 'Not Available';
+  let updated_datetime = 'Not Available';
+  let content = '';
   onMount( async () => {
     const client = getDirectusInstance(false);
     const singleton = await client.request(readSingleton(singletonName, {fields: ['title', 'author', 'date_created', 'date_updated', 'content']}));
-    console.log(singleton)
-    title = singleton['title'];
-    author = singleton['author'];
-    created_datetime = (new Date(singleton['date_created'])).toLocaleString();
-    updated_datetime = (new Date(singleton['date_updated'])).toLocaleString();
-    content = parseMarkdown(singleton['content']);
+    if (singleton) {
+      title = singleton['title'];
+      author = singleton['author'];
+      created_datetime = (new Date(singleton['date_created'])).toLocaleString();
+      updated_datetime = (new Date(singleton['date_updated'])).toLocaleString();
+      content = parseMarkdown(singleton['content']);
+    }
   });
 
 </script>

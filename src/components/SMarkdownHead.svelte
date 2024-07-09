@@ -1,8 +1,8 @@
 <script>
-  export let title;
-  export let author;
-  export let created_datetime;
-  export let updated_datetime;
+  export let title = 'This Page Is Under Construction';
+  export let author = 'Unknown';
+  export let created_datetime = 'Not Available';
+  export let updated_datetime = 'Not Available';
 </script>
 
 <h1 class="text-4xl mb-3 lg:text-5xl font-bold lg:tracking-tight mt-1 lg:leading-tight dark:text-white">

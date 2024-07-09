@@ -16,7 +16,7 @@ import SHomeApplications from '../components/SHomeApplications.svelte';
           <div class="mx-auto max-w-2xl text-center">
             <h1 class="text-3xl font-bold tracking-tight text-black dark:text-white sm:text-5xl">Explore The Real-World</h1>
             <p class="mt-6 text-lg text-left leading-8 text-gray-900 dark:text-gray-100 px-8 py-2 rounded-md border-2 border-neutral-300 dark:bg-neutral-700 dark:border-neutral-700 shadow-inner shadow-neutral-500 dark:shadow-neutral-950">
-              The website maintains and publishes <span class="font-semibold text-amber-700">datasets</span> derived from real-world scenarios, all freely accessible and open to contributions worldwide. Each dataset comes with detailed instructions and explanations of its <span class="font-semibold text-amber-700">applications</span>, along with abundant open-source experimental code to lower the barriers for researchers and developers to enter the field quickly.
+              The website maintains and publishes <span class="font-semibold text-amber-700 text-dots"><a href="#datasets">datasets</a></span> derived from real-world scenarios, all freely accessible and open to contributions worldwide. Each dataset comes with detailed instructions and explanations of its <span class="font-semibold text-amber-700"><a href="#applications">applications</a></span>, along with abundant open-source experimental code to lower the barriers for researchers and developers to enter the field quickly.
             </p>
             <div class="mt-6 flex flex-wrap items-center justify-center gap-x-2 md:gap-x-6 gap-y-2 md:gap-y-5">
               <Link href="/overview" classname="flex items-center justify-center w-[120px] text-nowrap text-ellipsis" size="sm">Get Started</Link>
@@ -68,7 +68,7 @@ import SHomeApplications from '../components/SHomeApplications.svelte';
         </p>
       </div>
 
-      <span class="flex relative z-1 block items-center text-center justify-center mt-3 sm:mt-5 lg:mt-6">
+      <span id="datasets" class="flex relative z-1 block items-center text-center justify-center mt-3 sm:mt-5 lg:mt-6">
         <span class="block -z-1 left-0 top-1/2 h-px w-full bg-neutral-300 dark:bg-neutral-500"></span>
         <span class="flex justify-center items-center gap-2 inline-block px-3 text-base text-neutral-500 dark:text-neutral-300 relative z-10">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-[18px]">
@@ -88,7 +88,7 @@ import SHomeApplications from '../components/SHomeApplications.svelte';
         </dl>
       </div>
 
-      <span class="flex relative z-1 block items-center text-center justify-center mt-6 sm:mt-8 lg:mt-10">
+      <span id="applications" class="flex relative z-1 block items-center text-center justify-center mt-6 sm:mt-8 lg:mt-10">
         <span class="block -z-1 left-0 top-1/2 h-px w-full bg-neutral-300 dark:bg-neutral-500"></span>
         <span class="flex justify-center items-center gap-2 inline-block px-3 text-base text-neutral-500 dark:text-neutral-300 relative z-10">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-[18px]">

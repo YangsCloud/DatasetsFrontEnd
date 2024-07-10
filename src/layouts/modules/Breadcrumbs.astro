@@ -6,12 +6,14 @@ interface Breadcrumb {
 
 interface Props {
   breadcrumbs?: Breadcrumb[];
+  current_loc?: string;
   classname?: string;
   size?: string;
 }
 
 const {
   breadcrumbs = [],
+  current_loc = "",
   classname = "",
   size = "md",
 } = Astro.props;
@@ -44,6 +46,19 @@ const sizes = {
           </a>
         </div>
       )
+    )
+  }
+  {
+    current_loc && (
+      <div class="flex items-center justify-center">
+        <span class="ml-2 mr-1 rtl:-scale-x-100">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-3">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+          </svg>
+        </span>
+
+        <span>{current_loc}</span>
+      </div>
     )
   }
 

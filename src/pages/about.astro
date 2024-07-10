@@ -10,7 +10,7 @@ import SMarkdown from '../components/SMarkdown.svelte';
 <Layout title='About'>
   <Container>
     <Prose>
-      <Breadcrumbs classname="not-prose pl-0"/>
+      <Breadcrumbs classname="not-prose pl-0" current_loc='About'/>
       <SMarkdown singletonName={'AboutInfo'} client:load/>
     </Prose>
   </Container>

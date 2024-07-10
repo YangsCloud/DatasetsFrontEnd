@@ -1,0 +1,24 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Container from '../../../layouts/Container.astro';
+import Prose from '../../../layouts/modules/Prose.astro';
+import Breadcrumbs from '../../../layouts/modules/Breadcrumbs.astro';
+
+import SMarkdown from '../../../components/SMarkdown.svelte';
+
+const breadcrumbs = [
+  {
+    name: "Younger",
+    path: "/younger",
+  },
+]
+
+---
+<Layout title='Dataset Series - Younger'>
+  <Container>
+    <Prose>
+      <Breadcrumbs breadcrumbs={breadcrumbs} classname="not-prose pl-0" current_loc='Dataset Series'/>
+      <SMarkdown singletonName={'YoungerSeries'} client:load/>
+    </Prose>
+  </Container>
+</Layout>

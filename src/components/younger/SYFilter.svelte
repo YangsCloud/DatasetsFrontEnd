@@ -90,7 +90,7 @@
         readItems(
           'YoungerComplete',
           {
-            fields: ['id', 'instance_name', 'model_name', 'model_source', 'model_part', 'node_number', 'edge_number', 'since_version', 'status', 'date_created', 'instance_meta', 'instance_tar'],
+            fields: ['id', 'instance_name', 'model_name', 'model_source', 'model_part', 'node_number', 'edge_number', 'since_version', 'status', 'date_created'],
             limit: show_count,
             page: page_index,
             ...options,
@@ -316,7 +316,7 @@
                           Details
                         </button>
                         <button class="px-2 py-1 border rounded-md border-neutral-300 dark:border-amber-800 bg-neutral-200 dark:bg-amber-800 dark:text-neutral-100 hover:bg-neutral-300 dark:hover:bg-amber-700 text-neutral-700 transition-colors duration-200">
-                          <a href={"http://localhost:16861/assets/" + instance['instance_tar'] + "?download"} target="_blank">Download</a>
+                          Download
                         </button>
                       </div>
                     </td>

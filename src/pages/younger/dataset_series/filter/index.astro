@@ -1,0 +1,26 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import Container from '../../../../layouts/Container.astro';
+import Breadcrumbs from '../../../../layouts/modules/Breadcrumbs.astro';
+
+import SYFilter from '../../../../components/younger/SYFilter.svelte';
+
+const breadcrumbs = [
+  {
+    name: "Younger",
+    path: "/younger",
+  },
+  {
+    name: "Dataset Series",
+    path: "/younger/dataset_series",
+  },
+]
+
+---
+
+<Layout title='Filter Series - Younger'>
+  <Container>
+    <Breadcrumbs breadcrumbs={breadcrumbs} current_loc='Filter'/>
+    <SYFilter client:load/>
+  </Container>
+</Layout>

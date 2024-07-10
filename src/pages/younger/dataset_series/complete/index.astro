@@ -1,0 +1,26 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import Container from '../../../../layouts/Container.astro';
+import Breadcrumbs from '../../../../layouts/modules/Breadcrumbs.astro';
+
+import SYComplete from '../../../../components/younger/SYComplete.svelte';
+
+const breadcrumbs = [
+  {
+    name: "Younger",
+    path: "/younger",
+  },
+  {
+    name: "Dataset Series",
+    path: "/younger/dataset_series",
+  },
+]
+
+---
+
+<Layout title='Complete Series - Younger'>
+  <Container>
+    <Breadcrumbs breadcrumbs={breadcrumbs} current_loc='Complete'/>
+    <SYComplete client:load/>
+  </Container>
+</Layout>

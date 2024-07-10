@@ -66,7 +66,7 @@
           <table class="min-w-full divide-y divide-neutral-300 dark:divide-neutral-700">
             <thead class="bg-neutral-50 dark:bg-neutral-800">
               <tr>
-                <th scope="col" class="py-3.5 px-3 text-sm font-semibold text-left text-neutral-600 dark:text-neutral-300">
+                <th scope="col" class="py-3.5 px-3 text-sm font-semibold text-neutral-600 dark:text-neutral-300">
                   <div class="flex items-center gap-x-2">
                     <input type="checkbox" value="" class="w-3.5 h-3.5 text-amber-600 bg-amber-100 dark:bg-amber-600 border-neutral-300 rounded focus:ring-amber-500 dark:focus:ring-amber-600 dark:ring-offset-neutral-800 focus:ring-2 dark:border-neutral-600">
                     <button class="flex items-center gap-x-1 px-2">
@@ -78,23 +78,35 @@
                   </div>
                 </th>
 
-                <th scope="col" class="py-3.5 px-3 text-sm font-semibold text-left text-neutral-600 dark:text-neutral-300">
+                <th scope="col" class="py-3.5 px-3 text-sm font-semibold text-center text-neutral-600 dark:text-neutral-300">
+                  Model Name
+                </th>
+
+                <th scope="col" class="py-3.5 px-3 text-sm font-semibold text-center text-neutral-600 dark:text-neutral-300">
+                  Model Source
+                </th>
+
+                <th scope="col" class="py-3.5 px-3 text-sm font-semibold text-center text-neutral-600 dark:text-neutral-300">
+                  #Node
+                </th>
+
+                <th scope="col" class="py-3.5 px-3 text-sm font-semibold text-center text-neutral-600 dark:text-neutral-300">
+                  #Edge
+                </th>
+
+                <th scope="col" class="py-3.5 px-3 text-sm font-semibold text-center text-neutral-600 dark:text-neutral-300">
                   Date
                 </th>
 
-                <th scope="col" class="py-3.5 px-3 text-sm font-semibold text-left text-neutral-600 dark:text-neutral-300">
+                <th scope="col" class="py-3.5 px-3 text-sm font-semibold text-center text-neutral-600 dark:text-neutral-300">
+                  Version
+                </th>
+
+                <th scope="col" class="py-3.5 px-3 text-sm font-semibold text-center text-neutral-600 dark:text-neutral-300">
                   Status
                 </th>
 
-                <th scope="col" class="py-3.5 px-3 text-sm font-semibold text-left text-neutral-600 dark:text-neutral-300">
-                  Customer
-                </th>
-
-                <th scope="col" class="py-3.5 px-3 text-sm font-semibold text-left text-neutral-600 dark:text-neutral-300">
-                  Purchase
-                </th>
-
-                <th scope="col" class="py-3.5 px-3 text-sm font-semibold text-left text-neutral-600 dark:text-neutral-300">
+                <th scope="col" class="py-3.5 px-3 text-sm font-semibold text-center text-neutral-600 dark:text-neutral-300">
                   Actions
                 </th>
               </tr>
@@ -107,8 +119,21 @@
                     <span>#3066</span>
                   </div>
                 </td>
-                <td class="px-3 py-3 text-sm text-neutral-500 dark:text-neutral-300 whitespace-nowrap">Jan 6, 2022</td>
-                <td class="px-3 py-3 text-sm font-medium text-neutral-700 whitespace-nowrap">
+                <td class="px-3 py-3 text-sm text-neutral-500 text-center dark:text-neutral-300 whitespace-nowrap">model_name</td>
+                <td class="px-3 py-3 text-sm text-neutral-500 dark:text-neutral-300 whitespace-nowrap">
+                  <div class="flex items-center justify-center gap-x-2">
+                    <img class="object-cover w-8 h-8 rounded-full" src="/logos/younger/tensorflow.svg" alt="">
+                    <div>
+                      <h2 class="text-sm font-medium text-gray-800 dark:text-white ">model_source_name</h2>
+                      <a href="#" class="text-xs font-normal text-sky-500 dark:text-sky-600">See Origin Model</a>
+                    </div>
+                  </div>
+                </td>
+                <td class="px-3 py-3 text-sm text-neutral-500 text-center dark:text-neutral-300 whitespace-nowrap">node_number</td>
+                <td class="px-3 py-3 text-sm text-neutral-500 text-center dark:text-neutral-300 whitespace-nowrap">edge_number</td>
+                <td class="px-3 py-3 text-sm text-neutral-500 text-center dark:text-neutral-300 whitespace-nowrap">datetime</td>
+                <td class="px-3 py-3 text-sm text-neutral-500 text-center dark:text-neutral-300 whitespace-nowrap">version</td>
+                <td class="px-3 py-3 text-sm font-medium text-center text-neutral-700 whitespace-nowrap">
                   <div class="inline-flex items-center px-3 py-1 rounded-full gap-x-1 text-green-600 bg-green-200 dark:bg-emerald-200">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-3">
                       <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
@@ -128,18 +153,8 @@
                     <h2 class="text-sm font-normal">Recalled</h2>
                   </div> -->
                 </td>
-                <td class="px-3 py-3 text-sm text-neutral-500 dark:text-neutral-300 whitespace-nowrap">
-                  <div class="flex items-center gap-x-2">
-                    <img class="object-cover w-8 h-8 rounded-full" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="">
-                    <div>
-                      <h2 class="text-sm font-medium text-gray-800 dark:text-white ">Hub Name</h2>
-                      <a href="#" class="text-xs font-normal text-sky-500 dark:text-sky-600">See Origin Model</a>
-                    </div>
-                  </div>
-                </td>
-                <td class="px-3 py-3 text-sm text-neutral-500 dark:text-neutral-300 whitespace-nowrap">Jan 6, 2022</td>
-                <td class="px-3 py-3 text-sm whitespace-nowrap">
-                  <div class="flex items-center gap-x-3">
+                <td class="px-2 py-3 text-sm whitespace-nowrap">
+                  <div class="flex items-center justify-center gap-x-3">
                     <button class="px-2 py-1 rounded-md dark:border-purple-800 dark:text-neutral-100 hover:bg-purple-300 dark:hover:bg-purple-700 text-purple-700 dark:text-purple-300 transition-colors duration-200">
                       Details
                     </button>
@@ -184,9 +199,25 @@
 
   <div class="mx-2 mt-6 sm:flex sm:items-center sm:justify-between">
     <div class="flex items-center justify-center text-sm font-medium text-neutral-700 dark:text-neutral-300 gap-x-2">
-      <span class="font-normal text-neutral-500 dark:text-neutral-400">Page</span>
-      <input id="page" type="text" placeholder="1" class="block indent-0 aligh-middle w-16 px-2 py-1 text-neutral-800 bg-neutral-200 border border-neutral-300 rounded-md placeholder-neutral-500 dark:bg-neutral-700 dark:text-neutral-300 dark:border-amber-800 focus:border-amber-600 dark:focus:border-amber-600 focus:ring-amber-600 focus:outline-none focus:ring focus:ring-opacity-40">
-      <span>of 10</span>
+      <div class="relative flex w-full max-w-xs justify-center items-center gap-1 text-slate-700 dark:text-slate-300">
+        <span class="font-normal text-neutral-500 dark:text-neutral-500">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8.25V18a2.25 2.25 0 0 0 2.25 2.25h13.5A2.25 2.25 0 0 0 21 18V8.25m-18 0V6a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 6v2.25m-18 0h18M5.25 6h.008v.008H5.25V6ZM7.5 6h.008v.008H7.5V6Zm2.25 0h.008v.008H9.75V6Z" />
+          </svg>
+        </span>
+        <label for="show-count" class="font-normal text-neutral-500 dark:text-neutral-500">Show</label>
+        <select id="show-count" name="show-count" class="w-[76px] p-0 pl-3 h-6 rounded-md border border-neutral-300 bg-neutral-200 text-sm text-neutral-500 focus:ring-1 focus:ring-purple-300 focus:border-2 focus:border-purple-600 dark:border-purple-800 dark:bg-neutral-700 dark:focus:ring-1 dark:focus:ring-purple-500 dark:focus:border-2 dark:focus:border-purple-800">
+          <option value="50">50</option>
+          <option value="100" selected>100</option>
+          <option value="200">200</option>
+        </select>
+        <span class="font-normal text-neutral-500 dark:text-neutral-500 text-nowrap">Items/Page</span>
+      </div>
+    </div>
+    <div class="flex items-center justify-center text-sm font-medium text-neutral-700 dark:text-neutral-300 gap-x-2 mt-3 sm:mt-0">
+      <span class="font-normal text-neutral-500 dark:text-neutral-500">Page</span>
+      <input id="page" type="text" placeholder="1" class="h-6 -indent-px text-center text-sm block indent-0 aligh-middle w-16 px-2 py-1 text-neutral-800 bg-neutral-200 border border-neutral-300 rounded-md placeholder-neutral-500 dark:bg-neutral-700 dark:text-neutral-300 dark:border-amber-800 focus:border-amber-600 dark:focus:border-amber-600 focus:ring-amber-600 focus:outline-none focus:ring focus:ring-opacity-40">
+      <span class="text-nowrap">of 10</span>
     </div>
     <div class="flex items-center mt-3 gap-x-2 sm:mt-0">
       <a href="#" class="flex items-center justify-center w-1/2 px-2 py-2 text-sm text-neutral-700 capitalize transition-colors duration-200 bg-neutral-200 border border-neutral-300 shadow-md shadow-neutral-500 dark:shadow-amber-900 rounded-md sm:w-auto gap-x-2 hover:bg-neutral-100 dark:bg-amber-900 dark:text-neutral-200 dark:border-amber-700 dark:hover:bg-amber-800">

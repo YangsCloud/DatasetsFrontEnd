@@ -15,7 +15,7 @@
   onMount( async () => {
     const client = getDirectusInstance(false);
     const singleton = await client.request(readSingleton(singletonName, {fields: ['title', 'author', 'date_created', 'date_updated', 'content']}));
-    if (singleton) {
+    if (Object.keys(singleton).length) {
       title = singleton['title'];
       author = singleton['author'];
       created_datetime = (new Date(singleton['date_created'])).toLocaleString();

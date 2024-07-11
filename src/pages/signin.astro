@@ -1,4 +1,5 @@
 ---
+import { DIRECTUS_API_URL, PROJECT_URL } from "../constants"
 import Layout from "../layouts/Layout.astro"
 import Container from "../layouts/Container.astro"
 import Link from "../layouts/modules/Link.astro"
@@ -25,7 +26,7 @@ import SSignIn from "../components/SSignIn.svelte"
             </svg>
           </Link>
 
-          <Link slot="signin_button" style="primary" href="http://localhost:16861/auth/login/github?redirect=http://localhost:4321" classname="flex items-center justify-center w-[266px]" size="sm">
+          <Link slot="signin_button" style="primary" href={DIRECTUS_API_URL + "/auth/login/github?redirect=" + PROJECT_URL} classname="flex items-center justify-center w-[266px]" size="sm">
             <img src="/logos/github/github-mark-white.svg" alt="GitHub" class="flex w-[1.5rem] m-2 block dark:hidden" />
             <img src="/logos/github/github-mark.svg" alt="GitHub" class="flex w-[1.5rem] m-2 hidden dark:block" />
             <span>Sign In With GitHub</span>

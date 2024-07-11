@@ -1,4 +1,6 @@
 <script>
+  import { DIRECTUS_API_URL } from "../../constants";
+
   import { onMount } from "svelte";
   import { readItems } from "@directus/sdk";
   import { redirectTo } from "../../libs/redirect.svelte";
@@ -316,7 +318,7 @@
                           Details
                         </button>
                         <button class="px-2 py-1 border rounded-md border-neutral-300 dark:border-amber-800 bg-neutral-200 dark:bg-amber-800 dark:text-neutral-100 hover:bg-neutral-300 dark:hover:bg-amber-700 text-neutral-700 transition-colors duration-200">
-                          <a href={"http://localhost:16861/assets/" + instance['instance_tar'] + "?download"} target="_blank">Download</a>
+                          <a href={DIRECTUS_API_URL + "/assets/" + instance['instance_tar'] + "?download"} target="_blank">Download</a>
                         </button>
                       </div>
                     </td>

@@ -17,6 +17,6 @@ export default defineConfig({
   output: 'server',
   integrations: [tailwind(), alpine(), svelte(), playformCompress()],
   adapter: node({
-    mode: "standalone"
+    mode: "middleware"
   })
 });

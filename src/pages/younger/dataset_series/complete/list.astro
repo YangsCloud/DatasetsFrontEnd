@@ -1,10 +1,9 @@
 ---
 import Layout from '../../../../layouts/Layout.astro';
 import Container from '../../../../layouts/Container.astro';
-import Prose from '../../../../layouts/modules/Prose.astro';
 import Breadcrumbs from '../../../../layouts/modules/Breadcrumbs.astro';
 
-import SMarkdown from '../../../../components/SMarkdown.svelte';
+import SYComplete from '../../../../components/younger/SYComplete.svelte';
 
 const breadcrumbs = [
   {
@@ -15,14 +14,17 @@ const breadcrumbs = [
     name: "Dataset Series",
     path: "/younger/dataset_series",
   },
+  {
+    name: "Complete",
+    path: "/younger/dataset_series/complete",
+  },
 ]
 
 ---
+
 <Layout title='Complete Series - Younger'>
   <Container>
-    <Prose>
-      <Breadcrumbs breadcrumbs={breadcrumbs} classname="not-prose pl-0" current_loc='Complete'/>
-      <SMarkdown singletonName={'YoungerSeiresCompleteInfo'} client:load/>
-    </Prose>
+    <Breadcrumbs breadcrumbs={breadcrumbs} current_loc='Instances'/>
+    <SYComplete client:load/>
   </Container>
 </Layout>

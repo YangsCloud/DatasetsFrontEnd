@@ -1,9 +1,10 @@
 ---
 import Layout from '../../../../layouts/Layout.astro';
 import Container from '../../../../layouts/Container.astro';
+import Prose from '../../../../layouts/modules/Prose.astro';
 import Breadcrumbs from '../../../../layouts/modules/Breadcrumbs.astro';
 
-import SYFilter from '../../../../components/younger/SYFilter.svelte';
+import SMarkdown from '../../../../components/SMarkdown.svelte';
 
 const breadcrumbs = [
   {
@@ -17,10 +18,11 @@ const breadcrumbs = [
 ]
 
 ---
-
 <Layout title='Filter Series - Younger'>
   <Container>
-    <Breadcrumbs breadcrumbs={breadcrumbs} current_loc='Filter'/>
-    <SYFilter client:load/>
+    <Prose>
+      <Breadcrumbs breadcrumbs={breadcrumbs} classname="not-prose pl-0" current_loc='Filter'/>
+      <SMarkdown singletonName={'YoungerFilterInfo'} client:load/>
+    </Prose>
   </Container>
 </Layout>

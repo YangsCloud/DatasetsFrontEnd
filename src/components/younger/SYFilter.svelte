@@ -5,30 +5,6 @@
   import { getUserInfo } from "../../libs/auth.svelte";
   import { getDirectusInstance } from "../../libs/client.svelte";
 
-  let model_source_logos = {
-    huggingface: '/logos/younger/huggingface.svg',
-    onnx: '/logos/younger/onnx.svg',
-    pytorch: '/logos/younger/pytorch.svg',
-    tensorflow: '/logos/younger/tensorflow.svg',
-    user: '/logos/younger/sparkles.svg',
-  }
-
-  let model_source_names = {
-    huggingface: 'Hugging Face',
-    onnx: 'ONNX Model Zoo',
-    pytorch: 'PyTorch Hub',
-    tensorflow: 'TensorFlow Hub',
-    user: 'User Uploaded',
-  }
-
-  let model_source_links = {
-    huggingface: 'https://huggingface.co/',
-    onnx: 'https://onnx.ai/models/',
-    pytorch: 'https://pytorch.org/hub/',
-    tensorflow: 'https://www.tensorflow.org/hub',
-    user: '#top',
-  }
-
   let isAuthed;
   let userInfo;
 
@@ -72,7 +48,7 @@
     if (reload) {
       total_item = (await client.request(
         readItems(
-          'YoungerComplete',
+          'YoungerSeriesFilter',
           {
             aggregate: { count: '*' },
             ...options,
@@ -88,9 +64,9 @@
     if (page_index) {
       instances = await client.request(
         readItems(
-          'YoungerComplete',
+          'YoungerSeriesFilter',
           {
-            fields: ['id', 'instance_name', 'model_name', 'model_source', 'model_part', 'node_number', 'edge_number', 'since_version', 'status', 'date_created'],
+            fields: ['id', 'instance_name', 'model_name', 'model_source', 'model_part', 'node_number', 'edge_number', 'since_version', 'status', 'date_created', 'instance_meta', 'instance_tar'],
             limit: show_count,
             page: page_index,
             ...options,
@@ -119,7 +95,7 @@
   <div class="mx-2 sm:flex sm:items-center sm:justify-between">
     <div>
       <div class="flex items-center gap-x-3">
-        <h2 class="text-lg font-medium text-amber-800 dark:text-amber-600">Younger - Complete Series</h2>
+        <h2 class="text-lg font-medium text-amber-800 dark:text-amber-600">Younger - Filter Series</h2>
         <span class="px-3 py-1 text-xs text-purple-600 bg-purple-100 rounded-full dark:bg-neutral-600 dark:text-purple-300">{total_item} Instances</span>
       </div>
       <p class="mt-1 text-sm text-neutral-500 dark:text-neutral-300">All Instances Derived From Public Real-World Model Hubs.</p>
@@ -135,7 +111,7 @@
         </button>
       </div>
       <div class="flex items-center justify-center">
-        <button class="flex items-center justify-center gap-x-2 w-7/8 sm:w-9/10 px-2 py-2 mx-2 my-1 md:my-0 text-sm text-nowrap tracking-wide text-neutral-800 transition-colors duration-200 bg-neutral-100 border rounded-lg dark:hover:bg-amber-800 dark:bg-amber-900 hover:bg-neutral-50 dark:text-neutral-200 dark:border-amber-700">
+        <button disabled class="cursor-not-allowed flex items-center justify-center gap-x-2 w-7/8 sm:w-9/10 px-2 py-2 mx-2 my-1 md:my-0 text-sm text-nowrap tracking-wide text-neutral-800 transition-colors duration-200 bg-neutral-100 border rounded-lg dark:hover:bg-amber-800 dark:bg-amber-900 hover:bg-neutral-50 dark:text-neutral-200 dark:border-amber-700">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 9.75v6.75m0 0-3-3m3 3 3-3m-8.25 6a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z" />
           </svg>
@@ -212,11 +188,7 @@
                   </th>
 
                   <th scope="col" class="py-3.5 px-3 text-sm font-semibold text-center text-neutral-600 dark:text-neutral-300">
-                    Model Name
-                  </th>
-
-                  <th scope="col" class="py-3.5 px-3 text-sm font-semibold text-center text-neutral-600 dark:text-neutral-300">
-                    Model Source
+                    Instance Hash
                   </th>
 
                   <th scope="col" class="py-3.5 px-3 text-sm font-semibold text-center text-neutral-600 dark:text-neutral-300">
@@ -265,16 +237,7 @@
                         <span>#{index + 1}</span>
                       </div>
                     </td>
-                    <td class="px-3 py-3 text-sm text-neutral-500 text-center dark:text-neutral-300 whitespace-nowrap">{instance['model_name']}</td>
-                    <td class="px-3 py-3 text-sm text-neutral-500 dark:text-neutral-300 whitespace-nowrap">
-                      <div class="flex items-center justify-center gap-x-2">
-                        <img class="object-cover w-8 h-8 rounded-full" src={model_source_logos[instance['model_source']]} alt="Hub Source Logo">
-                        <div>
-                          <h2 class="text-sm font-medium text-neutral-500 dark:text-neutral-300 ">{model_source_names[instance['model_source']]}</h2>
-                          <a href={instance['model_source'] === 'huggingface' ? model_source_links[instance['model_source']] + instance['model_name'] : model_source_links[instance['model_source']]} class="text-xs font-normal text-sky-500 dark:text-sky-600" target="_blank">See Origin Model</a>
-                        </div>
-                      </div>
-                    </td>
+                    <td class="px-3 py-3 text-sm text-neutral-500 text-center dark:text-neutral-300 whitespace-nowrap">{instance['instance_hash']}</td>
                     <td class="px-3 py-3 text-sm text-neutral-500 text-center dark:text-neutral-300 whitespace-nowrap">{instance['node_number']}</td>
                     <td class="px-3 py-3 text-sm text-neutral-500 text-center dark:text-neutral-300 whitespace-nowrap">{instance['edge_number']}</td>
                     <td class="px-3 py-3 text-sm text-neutral-500 text-center dark:text-neutral-300 whitespace-nowrap">{(new Date(instance['date_created'])).toLocaleDateString()}</td>
@@ -312,11 +275,11 @@
                     </td>
                     <td class="px-2 py-3 text-sm whitespace-nowrap">
                       <div class="flex items-center justify-center gap-x-3">
-                        <button on:click={() => { window.open("/younger/dataset_series/complete/" + instance['id']); }} class="px-2 py-1 rounded-md dark:border-purple-800 dark:text-neutral-100 hover:bg-purple-300 dark:hover:bg-purple-700 text-purple-700 dark:text-purple-300 transition-colors duration-200">
+                        <button on:click={() => { window.open("/younger/dataset_series/filter/" + instance['id']); }} class="px-2 py-1 rounded-md dark:border-purple-800 dark:text-neutral-100 hover:bg-purple-300 dark:hover:bg-purple-700 text-purple-700 dark:text-purple-300 transition-colors duration-200">
                           Details
                         </button>
                         <button class="px-2 py-1 border rounded-md border-neutral-300 dark:border-amber-800 bg-neutral-200 dark:bg-amber-800 dark:text-neutral-100 hover:bg-neutral-300 dark:hover:bg-amber-700 text-neutral-700 transition-colors duration-200">
-                          Download
+                          <a href={"http://localhost:16861/assets/" + instance['instance_tar'] + "?download"} target="_blank">Download</a>
                         </button>
                       </div>
                     </td>
@@ -354,7 +317,7 @@
             </div>
           {/if}
         {:else}
-          <p class="mt-2 text-neutral-500 dark:text-neutral-500">Looking For Instances of Complete Series Require GitHub OAuth. Please Sign In.</p>
+          <p class="mt-2 text-neutral-500 dark:text-neutral-500">Looking For Instances of Filter Series Require GitHub OAuth. Please Sign In.</p>
           <div class="flex items-center mt-3 sm:mx-auto gap-x-3">
             <button on:click={() => { redirectTo("/signin") }} class="flex items-center justify-center w-1/2 px-5 py-2 text-sm tracking-wide text-neutral-100 transition-colors duration-200 bg-purple-500 rounded-lg shrink-0 sm:w-auto gap-x-2 hover:bg-purple-600 dark:hover:bg-purple-500 dark:bg-purple-600">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">

@@ -11,7 +11,7 @@
       readItems('HomeFeatures',
         {
           limit: -1,
-          fields: ['status', 'title', 'description']
+          fields: ['publish', 'title', 'description']
         }
       )
     );

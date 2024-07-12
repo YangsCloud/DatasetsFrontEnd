@@ -313,30 +313,18 @@
           </svg>
         </div>
         <h1 class="mt-3 text-lg text-neutral-800 dark:text-neutral-100">No Instances Found</h1>
-        {#if isAuthed}
-          {#if search_key}
-            <p class="mt-2 text-neutral-500 dark:text-neutral-500">Your search "{search_key}" did not match any Instances. Please try Again.</p>
-            <div class="flex items-center mt-3 sm:mx-auto gap-x-3">
-              <button on:click={() => { search_key = ''; getPage(true); }} class="w-1/2 px-5 py-2 text-sm text-neutral-700 transition-colors duration-200 bg-neutral-300 border border-neutral-500 rounded-lg sm:w-auto dark:hover:bg-neutral-600 dark:bg-neutral-900 hover:bg-neutral-100 dark:text-neutral-200 dark:border-neutral-700">
-                <span>Clear Search Key</span>
-              </button>
-            </div>
-          {:else}
-            <p class="mt-2 text-neutral-500 dark:text-neutral-500">The version "{selected_v.charAt(0).toUpperCase() + selected_v.slice(1)}" does not contains any Instances. Please try Again.</p>
-            <div class="flex items-center mt-3 sm:mx-auto gap-x-3">
-              <button on:click={() => { selected_v = 'all'; getPage(true); }} class="w-1/2 px-5 py-2 text-sm text-neutral-700 transition-colors duration-200 bg-neutral-300 border border-neutral-500 rounded-lg sm:w-auto dark:hover:bg-neutral-600 dark:bg-neutral-900 hover:bg-neutral-100 dark:text-neutral-200 dark:border-neutral-700">
-                <span>Clear Version Selection</span>
-              </button>
-            </div>
-          {/if}
-        {:else}
-          <p class="mt-2 text-neutral-500 dark:text-neutral-500">Looking For Instances of Filter Series Require GitHub OAuth. Please Sign In.</p>
+        {#if search_key}
+          <p class="mt-2 text-neutral-500 dark:text-neutral-500">Your search "{search_key}" did not match any Instances. Please try Again.</p>
           <div class="flex items-center mt-3 sm:mx-auto gap-x-3">
-            <button on:click={() => { redirectTo("/signin") }} class="flex items-center justify-center w-1/2 px-5 py-2 text-sm tracking-wide text-neutral-100 transition-colors duration-200 bg-purple-500 rounded-lg shrink-0 sm:w-auto gap-x-2 hover:bg-purple-600 dark:hover:bg-purple-500 dark:bg-purple-600">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Zm6-10.125a1.875 1.875 0 1 1-3.75 0 1.875 1.875 0 0 1 3.75 0Zm1.294 6.336a6.721 6.721 0 0 1-3.17.789 6.721 6.721 0 0 1-3.168-.789 3.376 3.376 0 0 1 6.338 0Z" />
-              </svg>
-              <span>Sign In</span>
+            <button on:click={() => { search_key = ''; getPage(true); }} class="w-1/2 px-5 py-2 text-sm text-neutral-700 transition-colors duration-200 bg-neutral-300 border border-neutral-500 rounded-lg sm:w-auto dark:hover:bg-neutral-600 dark:bg-neutral-900 hover:bg-neutral-100 dark:text-neutral-200 dark:border-neutral-700">
+              <span>Clear Search Key</span>
+            </button>
+          </div>
+        {:else}
+          <p class="mt-2 text-neutral-500 dark:text-neutral-500">The version "{selected_v.charAt(0).toUpperCase() + selected_v.slice(1)}" does not contains any Instances. Please try Again.</p>
+          <div class="flex items-center mt-3 sm:mx-auto gap-x-3">
+            <button on:click={() => { selected_v = 'all'; getPage(true); }} class="w-1/2 px-5 py-2 text-sm text-neutral-700 transition-colors duration-200 bg-neutral-300 border border-neutral-500 rounded-lg sm:w-auto dark:hover:bg-neutral-600 dark:bg-neutral-900 hover:bg-neutral-100 dark:text-neutral-200 dark:border-neutral-700">
+              <span>Clear Version Selection</span>
             </button>
           </div>
         {/if}

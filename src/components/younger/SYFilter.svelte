@@ -65,7 +65,7 @@
         readItems(
           'YoungerSeriesFilter',
           {
-            fields: ['id', 'instance_hash', 'node_number', 'edge_number', 'since_version', 'status', 'date_created', 'instance_meta', 'instance_tgz'],
+            fields: ['id', 'instance_hash', 'node_number', 'edge_number', 'since_version', 'status', 'paper', 'date_created', 'instance_meta', 'instance_tgz'],
             limit: show_count,
             page: page_index,
             ...options,
@@ -223,6 +223,10 @@
                   </th>
 
                   <th scope="col" class="py-3.5 px-3 text-sm font-semibold text-center text-neutral-600 dark:text-neutral-300">
+                    Paper Version ?
+                  </th>
+
+                  <th scope="col" class="py-3.5 px-3 text-sm font-semibold text-center text-neutral-600 dark:text-neutral-300">
                     Version
                   </th>
 
@@ -248,6 +252,7 @@
                     <td class="px-3 py-3 text-sm text-neutral-500 text-center dark:text-neutral-300 whitespace-nowrap">{instance['node_number']}</td>
                     <td class="px-3 py-3 text-sm text-neutral-500 text-center dark:text-neutral-300 whitespace-nowrap">{instance['edge_number']}</td>
                     <td class="px-3 py-3 text-sm text-neutral-500 text-center dark:text-neutral-300 whitespace-nowrap">{(new Date(instance['date_created'])).toLocaleDateString()}</td>
+                    <td class="px-3 py-3 text-sm text-neutral-500 text-center dark:text-neutral-300 whitespace-nowrap capitalize">{instance['paper'] ? 'Yes' : 'No'}</td>
                     <td class="px-3 py-3 text-sm text-neutral-500 text-center dark:text-neutral-300 whitespace-nowrap capitalize">{instance['since_version']}</td>
                     <td class="px-3 py-3 text-sm font-medium text-center text-neutral-700 whitespace-nowrap">
                       {#if instance['status'] === 'access'}

@@ -88,9 +88,7 @@
 
   onMount( async () => {
     ({isAuthed, userInfo} = await getUserInfo());
-    if (isAuthed) {
-      await getPage(true);
-    }
+    await getPage(true);
   });
 
 </script>

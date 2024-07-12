@@ -3,12 +3,7 @@
 
   import { onMount } from "svelte";
   import { readItems } from "@directus/sdk";
-  import { redirectTo } from "../../libs/redirect.svelte";
-  import { getUserInfo } from "../../libs/auth.svelte";
   import { getDirectusInstance } from "../../libs/client.svelte";
-
-  let isAuthed;
-  let userInfo;
 
   let total_item = 0;
   let total_page = 0;
@@ -37,7 +32,7 @@
 
     if ( search_key || selected_v !== 'all') {
       if ( search_key ) {
-        options['filter']['model_name'] = { _contains: search_key };
+        options['filter']['instance_hash'] = { _contains: search_key };
       }
 
       if ( selected_v !== 'all' ) {
@@ -87,7 +82,6 @@
   }
 
   onMount( async () => {
-    ({isAuthed, userInfo} = await getUserInfo());
     await getPage(true);
   });
 

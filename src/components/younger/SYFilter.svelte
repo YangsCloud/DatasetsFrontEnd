@@ -18,6 +18,7 @@
 
   let search_key = '';
   let selected_v = 'all'; // 'all' 'paper' 'publish'
+  let with_attrs = false;
   let n_sort_idx = 0; // 0: no-sort; 1: sort-asc; 2: sort-dsc;
   let e_sort_idx = 0; // 0: no-sort; 1: sort-asc; 2: sort-dsc;
 
@@ -39,13 +40,15 @@
       }
 
       if ( selected_v !== 'all' ) {
-        if ( selected_v === 'paper' ) {
+        if ( selected_v === 'paper_w' ) {
           options['filter']['since_version'] = { _eq: 'paper' };
         } else {
           options['filter']['since_version'] = { _neq: 'paper' };
         }
       }
     }
+
+    options['filter']['with_attributes'] = { _eq: with_attrs };
 
     if (reload) {
       total_item = (await client.request(
@@ -123,16 +126,27 @@
     </div>
   </div>
 
-  <div class="mx-2 mt-2 md:flex md:items-center md:justify-between grid grid-cols-1 md:grid-cols-2">
+  <div class="mx-2 mt-2 lg:flex lg:items-center lg:justify-between grid grid-cols-1 lg:grid-cols-3">
     <div class="relative flex items-center">
       <span class="absolute">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 mx-3 text-neutral-600 dark:text-neutral-300">
           <path stroke-linecap="round" stroke-linejoin="round" d="m15.75 15.75-2.489-2.489m0 0a3.375 3.375 0 1 0-4.773-4.773 3.375 3.375 0 0 0 4.774 4.774ZM21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
         </svg>
       </span>
-      <input type="text" placeholder="Search Model Name" class="block w-full py-1.5 pr-6 text-neutral-800 bg-neutral-200 border border-neutral-300 rounded-lg md:w-80 placeholder-neutral-500 pl-11 dark:bg-neutral-700 dark:text-neutral-300 dark:border-amber-800 focus:border-amber-600 dark:focus:border-amber-600 focus:ring-amber-600 focus:outline-none focus:ring focus:ring-opacity-50" bind:value={search_key} on:keydown={async (event) => {if (event.key === 'Enter') { await getPage(true) }}}>
+      <input type="text" placeholder="Search Model Name" class="block w-full py-1.5 pr-6 text-neutral-800 bg-neutral-200 border border-neutral-300 rounded-lg lg:w-80 placeholder-neutral-500 pl-11 dark:bg-neutral-700 dark:text-neutral-300 dark:border-amber-800 focus:border-amber-600 dark:focus:border-amber-600 focus:ring-amber-600 focus:outline-none focus:ring focus:ring-opacity-50" bind:value={search_key} on:keydown={async (event) => {if (event.key === 'Enter') { await getPage(true) }}}>
     </div>
-    <div class="flex justify-center mt-2 md:mt-0">
+
+    <div class="flex justify-center mt-2 lg:mt-0">
+      <div class="inline-flex overflow-hidden bg-neutral-300 dark:bg-neutral-800 border divide-x rounded-lg border-neutral-300 dark:bg-neutral-700 dark:border-neutral-500 dark:divide-neutral-500">
+        <label for="with-attributes" class="inline-flex cursor-pointer items-center justify-between gap-3 rounded-lg border border-neutral-300 bg-neutral-100 px-4 py-1.5 dark:border-neutral-700 dark:bg-neutral-800">
+          <input bind:value={with_attrs} on:click={async () => { with_attrs = !with_attrs; await getPage(true);}} id="with-attributes" type="checkbox" class="peer sr-only" role="switch" checked />
+          <span class="trancking-wide text-xs font-medium text-neutral-500 peer-checked:text-neutral-600 dark:text-neutral-500 dark:peer-checked:text-neutral-300">With Attributes</span>
+          <div class="relative bg-neutral-300 dark:bg-neutral-800 h-5 w-9 after:h-3 after:w-3 peer-checked:after:translate-x-4 rounded-full border border-neutral-300 bg-neutral after:absolute after:bottom-0 after:left-[0.1625rem] after:top-0 after:my-auto after:rounded-full after:bg-neutral-700 after:transition-all after:content-[''] peer-checked:bg-purple-700 peer-checked:after:bg-neutral-100 peer-focus:outline peer-focus:outline-2 peer-focus:outline-offset-2 peer-focus:outline-neutral-800 peer-focus:peer-checked:outline-purple-700 peer-active:outline-offset-0 peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:border-neutral-700 dark:bg-neutral-900 dark:after:bg-neutral-300 dark:peer-checked:bg-purple-600 dark:peer-checked:after:bg-neutral-100 dark:peer-focus:outline-neutral-300 dark:peer-focus:peer-checked:outline-purple-600" aria-hidden="true"></div>
+        </label>
+      </div>
+    </div>
+
+    <div class="flex justify-center mt-2 lg:mt-0">
       <div class="inline-flex overflow-hidden bg-neutral-300 border divide-x rounded-lg border-neutral-300 dark:bg-neutral-700 dark:border-neutral-500 dark:divide-neutral-500">
         {#if selected_v === 'all'}
           <button on:click={async () => { selected_v = 'all'; await getPage(true);}} class="px-2 py-2 text-xs font-medium transition-colors duration-200 sm:text-sm dark:bg-neutral-800 dark:text-neutral-300 bg-neutral-100 text-neutral-600">

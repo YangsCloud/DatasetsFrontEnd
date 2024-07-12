@@ -92,7 +92,7 @@
         readItems(
           'YoungerSeriesComplete',
           {
-            fields: ['id', 'instance_name', 'model_name', 'model_source', 'model_part', 'node_number', 'edge_number', 'since_version', 'status', 'date_created', 'instance_meta', 'instance_tar'],
+            fields: ['id', 'instance_name', 'model_name', 'model_source', 'model_part', 'node_number', 'edge_number', 'since_version', 'status', 'date_created', 'instance_tgz'],
             limit: show_count,
             page: page_index,
             ...options,
@@ -314,9 +314,6 @@
                     </td>
                     <td class="px-2 py-3 text-sm whitespace-nowrap">
                       <div class="flex items-center justify-center gap-x-3">
-                        <button on:click={() => { window.open("/younger/dataset_series/complete/" + instance['id']); }} class="px-2 py-1 rounded-md dark:border-purple-800 dark:text-neutral-100 hover:bg-purple-300 dark:hover:bg-purple-700 text-purple-700 dark:text-purple-300 transition-colors duration-200">
-                          Details
-                        </button>
                         <button class="px-2 py-1 border rounded-md border-neutral-300 dark:border-amber-800 bg-neutral-200 dark:bg-amber-800 dark:text-neutral-100 hover:bg-neutral-300 dark:hover:bg-amber-700 text-neutral-700 transition-colors duration-200">
                           <a href={DIRECTUS_API_URL + "/assets/" + instance['instance_tar'] + "?download"} target="_blank">Download</a>
                         </button>

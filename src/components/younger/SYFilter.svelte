@@ -68,7 +68,7 @@
         readItems(
           'YoungerSeriesFilter',
           {
-            fields: ['id', 'instance_name', 'model_name', 'model_source', 'model_part', 'node_number', 'edge_number', 'since_version', 'status', 'date_created', 'instance_meta', 'instance_tar'],
+            fields: ['id', 'instance_hash', 'node_number', 'edge_number', 'since_version', 'status', 'date_created', 'instance_meta', 'instance_tgz'],
             limit: show_count,
             page: page_index,
             ...options,

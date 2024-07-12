@@ -179,7 +179,7 @@
   </div>
 
   <!-- Table Body -->
-  {#if isAuthed && instances.length}
+  {#if instances.length}
     <div class="flex flex-col mt-2">
       <div class="-mx-3 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">

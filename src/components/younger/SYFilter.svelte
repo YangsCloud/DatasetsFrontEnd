@@ -357,7 +357,7 @@
           </svg>
         </span>
         <label for="show-count" class="font-normal text-neutral-500 dark:text-neutral-500">Show</label>
-        <select id="show-count" name="show-count" class="w-[76px] p-0 pl-3 h-6 rounded-md border border-neutral-300 bg-neutral-200 text-sm text-neutral-500 focus:ring-1 focus:ring-purple-300 focus:border-2 focus:border-purple-600 dark:border-purple-800 dark:bg-neutral-700 dark:focus:ring-1 dark:focus:ring-purple-500 dark:focus:border-2 dark:focus:border-purple-800" bind:value={show_count} on:change={() => { page_index = 1; getPage(); }}>
+        <select id="show-count" name="show-count" class="w-[76px] p-0 pl-3 h-6 rounded-md border border-neutral-300 bg-neutral-200 text-sm text-neutral-500 focus:ring-1 focus:ring-purple-300 focus:border-2 focus:border-purple-600 dark:border-purple-800 dark:bg-neutral-700 dark:focus:ring-1 dark:focus:ring-purple-500 dark:focus:border-2 dark:focus:border-purple-800" bind:value={show_count} on:change={() => { page_index = 1; getPage(true); }}>
           {#each show_count_options as show_count_option}
             <option value={show_count_option}>{show_count_option}</option>
           {/each}

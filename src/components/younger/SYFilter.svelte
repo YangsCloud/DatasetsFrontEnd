@@ -27,6 +27,8 @@
 
     let options = {};
 
+    options['sort'] = ['id']
+
     options['filter'] = {};
     options['filter']['with_attributes'] = { _eq: with_attrs };
 

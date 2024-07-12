@@ -41,7 +41,7 @@
       }
 
       if ( selected_v !== 'all' ) {
-        if ( selected_v === 'paper_w' ) {
+        if ( selected_v === 'paper' ) {
           options['filter']['since_version'] = { _eq: 'paper' };
         } else {
           options['filter']['since_version'] = { _neq: 'paper' };

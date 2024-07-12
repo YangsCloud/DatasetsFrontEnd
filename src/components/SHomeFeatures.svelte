@@ -11,7 +11,7 @@
       readItems('HomeFeatures',
         {
           limit: -1,
-          fields: ['status', 'title', 'description']
+          fields: ['publish', 'title', 'description']
         }
       )
     );
@@ -19,9 +19,9 @@
 </script>
 
 
-{#if homeFeatures}
+{#if homeFeatures.length}
   {#each homeFeatures as homeFeature}
-    {#if homeFeature["status"] === 'published'}
+    {#if homeFeature["publish"]}
       <div class="flex flex-col content-center shadow-neutral-600 dark:border-neutral-700 dark:shadow-neutral-500">
         <dt class="flex items-center pt-1 pb-1 pl-3 gap-x-2 text-base font-semibold leading-7 text-black dark:text-white">
           <span class="relative flex h-3 w-3 items-center justify-center">

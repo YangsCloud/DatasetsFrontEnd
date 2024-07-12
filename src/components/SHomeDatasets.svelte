@@ -11,16 +11,16 @@
       readItems('HomeDatasets',
         {
           limit: -1,
-          fields: ['status', 'title', 'description', 'route']
+          fields: ['publish', 'title', 'description', 'route']
         }
       )
     );
   });
 </script>
 
-{#if homeDatasets}
+{#if homeDatasets.length}
   {#each homeDatasets as homeDataset}
-    {#if homeDataset["status"] === 'published'}
+    {#if homeDataset["publish"]}
       <div class="flex flex-col rounded-md border-2 border-neutral-200 shadow-md shadow-neutral-600 dark:border-neutral-700 dark:shadow-neutral-500">
         <dt class="flex items-center pt-1 pb-1 pl-3 gap-x-3 text-base font-semibold leading-7 text-black dark:text-white border-b-2 border-dashed border-neutral-300 dark:border-neutral-600">
           <span class="relative flex h-3 w-3 items-center justify-center">

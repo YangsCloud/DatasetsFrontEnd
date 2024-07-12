@@ -49,8 +49,6 @@
       }
     }
 
-    console.log(options)
-
     if (reload) {
       total_item = (await client.request(
         readItems(

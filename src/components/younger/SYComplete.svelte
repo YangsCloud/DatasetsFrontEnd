@@ -315,7 +315,7 @@
                     <td class="px-2 py-3 text-sm whitespace-nowrap">
                       <div class="flex items-center justify-center gap-x-3">
                         <button class="px-2 py-1 border rounded-md border-neutral-300 dark:border-amber-800 bg-neutral-200 dark:bg-amber-800 dark:text-neutral-100 hover:bg-neutral-300 dark:hover:bg-amber-700 text-neutral-700 transition-colors duration-200">
-                          <a href={DIRECTUS_API_URL + "/assets/" + instance['instance_tar'] + "?download"} target="_blank">Download</a>
+                          <a href={DIRECTUS_API_URL + "/assets/" + instance['instance_tgz'] + "?download"} target="_blank">Download</a>
                         </button>
                       </div>
                     </td>
